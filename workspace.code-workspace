@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\react\\GretaThunbergFFF\\src\\images"
+		},
+		{
+			"path": "..\\..\\react\\GretaThunbergFFF\\src\\weeks"
+		}
+	],
+	"settings": {
+		"files.autoSave": "onFocusChange",
+		"search.exclude": {
+			"**/*.history": true
+		}
+	}
+}

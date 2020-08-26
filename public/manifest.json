@@ -1,0 +1,17 @@
+{
+  "name": "100 weeks with Greta Thunberg in pictures",
+  "short_name": "100 weeks with Greta Thunberg",
+  "lang": "en-US",
+  "start_url": "/http://greta.portplays.com/",
+  "display": "standalone",
+  "theme_color": "00ff66",
+  "icons": [
+    {
+      "src": "http://greta.portplays.com/images/GretaThunberg%20collage3.png",
+      "sizes": "s"
+    },
+    {
+      "sizes": "2560x1439"
+    }
+  ]
+}
