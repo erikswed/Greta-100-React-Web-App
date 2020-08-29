@@ -3,7 +3,8 @@
 
 This is a fan website built using 
 ReactJS and 
-Bulma as the CSS framework. 
+Bulma as the CSS framework.     
+
 (we are looking for contributers to help build this site)
 
 [Check it out!](https://http://greta.portplays.com/)
