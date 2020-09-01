@@ -1,7 +1,8 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import uniqueId from 'lodash/uniqueId';
 import Article from '../elements/Article';
-import Resume from '../../resume.json';
 
 class Articles extends Component {
 	constructor(props) {
@@ -9,9 +10,10 @@ class Articles extends Component {
 		this.state = { articles: [] };
 	}
 
-	componentDidMount() {
+	getArticles() {
+		if (this.props.articles.length === 0) return null;
 		const articles = [];
-		Resume.article.map(element => {
+		this.props.articles.article.map(element => {
 			const id = uniqueId();
 			articles.push(
 				<div className="column" key={id}>
@@ -30,10 +32,12 @@ class Articles extends Component {
 		for (let i = 0; i < 0; i += 1) {
 			articles.push(<div className="column" />);
 		}
-		this.setState({ articles });
+		this.state.articles = articles;
+		return null;
 	}
 
 	render() {
+		this.getArticles();
 		const { articles } = this.state;
 		return (
 			<section className="section" id="articles">
@@ -47,4 +51,9 @@ class Articles extends Component {
 	}
 }
 
-export default Articles;
+const mapStateToProps = state => {
+	return { articles: state.rootReducer.remoteArticles };
+};
+
+const Aaa = connect(mapStateToProps, null)(Articles);
+export default Aaa;
