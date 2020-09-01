@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getData, getAlbumData } from './actions/index';
 import Header from './components/structure/Header';
 import Content from './components/structure/Content';
 import Footer from './components/structure/Footer';
-import Resume from './resume.json';
 
 class App extends Component {
 	componentDidMount() {
 		document.title = [
-			Resume.basics.name,
-			Resume.basics.label,
-			[Resume.basics.location.region, Resume.basics.location.country].join(', '),
+			'Resume.basics.name',
+			'Resume.basics.label',
+			['Resume.basics.location.region', 'Resume.basics.location.country'].join(', '),
 		].join(' | ');
+		const { getDataPosts, getAlbum } = this.props;
+		getDataPosts();
+		getAlbum();
 	}
 
 	render() {
@@ -23,4 +27,9 @@ class App extends Component {
 		);
 	}
 }
-export default App;
+const mapDispatchToProps = dispatch => ({
+	getDataPosts: () => dispatch(getData()),
+	getAlbum: () => dispatch(getAlbumData()),
+});
+
+export default connect(null, mapDispatchToProps)(App);

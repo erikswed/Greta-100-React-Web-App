@@ -14,7 +14,6 @@ import ReactResizeDetector from 'react-resize-detector';
 import VisibilitySensor from 'react-visibility-sensor';
 
 class LaneLayout extends React.Component {
-	
 	static propTypes = {
 		/**
 		 * Config object for responsive behavior

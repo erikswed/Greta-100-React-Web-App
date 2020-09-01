@@ -1,6 +1,6 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import React from 'react';
+import React, { useRef } from 'react';
 import SliderWrapper from './SliderWrapper';
 
 class Timeline extends React.Component {
@@ -25,24 +25,22 @@ class Timeline extends React.Component {
 
 	changeUpdateCount() {
 		const { updateCount } = this.state;
-		this.setState(
-			{
-				updateCount: updateCount + 1,
-			},
-			// () => console.log(`test state after update: ${updateCount}`),
-		);
+		this.setState({
+			updateCount: updateCount + 1,
+		});
 	}
 
 	changeSlider() {
 		this.setState({
-			slideIndex: this.sliderWrapper.slider.innerSlider.state.currentSlide,
+			slideIndex: this.wrapper.slider.innerSlider.state.currentSlide,
 		});
+		// when swiping the caourusel this changes the album in the TimeLineWiewe to the selected caourusel album
 		// const { onChangeAlbum } = this.props;
 		// onChangeAlbum(this.sliderWrapper.slider.innerSlider.state.currentSlide);
 	}
 
 	changeHandler(e) {
-		this.sliderWrapper.slider.slickGoTo(e.target.value);
+		this.wrapper.slider.slickGoTo(e.target.value);
 	}
 
 	render() {
@@ -56,9 +54,7 @@ class Timeline extends React.Component {
 					<input onChange={this.changeHandler} value={slideIndex} type="range" min={0} max={50} />
 					<SliderWrapper
 						onImageClick={this.onImageClick}
-						ref={sliderWrapper => {
-							this.sliderWrapper = sliderWrapper;
-						}}
+						childRef={ref => (this.wrapper = ref)}
 						beforeChanged={this.changeUpdateCount.bind(this)}
 						afterChanged={this.changeSlider.bind(this)}
 						slideIndex={slideIndex}

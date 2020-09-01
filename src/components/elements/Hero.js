@@ -1,10 +1,12 @@
 import React from 'react';
 import uniqueId from 'lodash/uniqueId';
+import { connect } from 'react-redux';
 import NavBar from './NavBar';
-import Resume from '../../resume.json';
 import ShowBuildAndVersion from './ShowBuildAndVersion';
 
-function Hero() {
+function Hero({ articles }) {
+	if (typeof articles === 'undefined') return null;
+	if (articles.length === 0) return null;
 	return (
 		<section className="hero is-dark is-fullheight has-bg-image">
 			<div className="hero-head">
@@ -13,22 +15,22 @@ function Hero() {
 			<div className="hero-body">
 				<div className="container">
 					<p className="subtitle is-5 has-text-weight-light">I'm a</p>
-					<h1 className="title">{Resume.basics.label}</h1>
+					<h1 className="title">{articles.basics.label}</h1>
 					<h2 className="subtitle">
-						{Resume.basics.location.region}, {Resume.basics.location.country}
+						{articles.basics.location.region}, {articles.basics.location.country}
 					</h2>
 					<div>
-						<p className="subtitle is-5 has-text-weight-light">{Resume.basics.description}</p>
+						<p className="subtitle is-5 has-text-weight-light">{articles.basics.description}</p>
 					</div>
-					<div className="navbar-item  is-6   is-unselectable">{Resume.basics.fansite}</div>
-					<div className="navbar-item  is-6   is-unselectable">{Resume.basics.fansiteDev}</div>
+					<div className="navbar-item  is-6   is-unselectable">{articles.basics.fansite}</div>
+					<div className="navbar-item  is-6   is-unselectable">{articles.basics.fansiteDev}</div>
 				</div>
 			</div>
 
 			<div className="hero-foot" style={{ paddingBottom: '20px' }}>
 				<div className="columns is-mobile">
 					<div className="column" />
-					{Resume.basics.profiles.map(value => {
+					{articles.basics.profiles.map(value => {
 						const id = uniqueId();
 						return (
 							<div key={id} className="column has-text-centered">
@@ -56,4 +58,9 @@ function Hero() {
 	);
 }
 
-export default Hero;
+const mapStateToProps = state => {
+	return { articles: state.rootReducer.remoteArticles };
+};
+
+const Aaa = connect(mapStateToProps, null)(Hero);
+export default Aaa;

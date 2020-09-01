@@ -1,30 +1,31 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 import Slider from 'react-slick';
+import { connect } from 'react-redux';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React from 'react';
-import Resume from '../../resume.json';
-import albums from '../../albumData.json';
 
 const la = require('lodash');
 
-class SliderWrapper extends React.Component {
-	shouldComponentUpdate(nextProps) {
-		// certain condition here, perhaps comparison between this.props and nextProps
-		// and if you want to update slider on setState in parent of this, return true, otherwise return false
-		const { updateCount } = nextProps;
-		const { updateCounter } = this.props;
+class Wrapper extends React.Component {
+	componentDidMount() {
+		const { childRef } = this.props;
+		childRef(this);
+	}
 
-		if (updateCounter !== updateCount) {
-			return false;
-		}
-		// console.log("shouldComponentUpdate");
-		return true;
+	componentWillUnmount() {
+		const { childRef } = this.props;
+		childRef(undefined);
 	}
 
 	sliders() {
-		return Resume.weeks.map(week => {
-			let photo = la.find(albums, { weekNumber: week.weekNumber });
+		const { articles } = this.props;
+		const { albumData } = this.props;
+		if (albumData.length === 0) return null;
+		if (articles.length === 0) return null;
+		return articles.weeks.map(week => {
+			let photo = la.find(albumData, { weekNumber: week.weekNumber });
 			photo = encodeURIComponent(`${process.env.PUBLIC_URL}/images/weeks/${week.weekNumber}/${photo.coverImage}`);
 			const { onImageClick } = this.props;
 
@@ -111,4 +112,9 @@ class SliderWrapper extends React.Component {
 	}
 }
 
+const mapStateToProps = state => {
+	return { articles: state.rootReducer.remoteArticles, albumData: state.rootReducer.remoteAlbumData };
+};
+
+const SliderWrapper = connect(mapStateToProps, null)(Wrapper);
 export default SliderWrapper;

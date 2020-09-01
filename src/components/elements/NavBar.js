@@ -1,6 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import MenuItem from './MenuItem';
-import Resume from '../../resume.json';
 
 class NavBar extends React.Component {
 	constructor(props) {
@@ -16,12 +16,13 @@ class NavBar extends React.Component {
 
 	render() {
 		const { showMenu } = this.props;
+		const { articles } = this.props;
 		return (
 			<nav className="navbar is-transparent">
 				<div className="container">
 					<div className="navbar-brand">
 						<a href="/" className="navbar-item title is-unselectable my-name">
-							{Resume.basics.name}
+							{articles.basics.name}
 						</a>
 						<span className="navbar-burger burger" onClick={this.handleMenuClick}>
 							<span />
@@ -42,4 +43,9 @@ class NavBar extends React.Component {
 	}
 }
 
-export default NavBar;
+const mapStateToProps = state => {
+	return { articles: state.rootReducer.remoteArticles };
+};
+
+const Aaa = connect(mapStateToProps, null)(NavBar);
+export default Aaa;

@@ -1,12 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Masonry from '../masonry/Masonry';
 import VerticalMasonry from '../masonry/VerticalMasonry';
 import ItemRenderer from '../masonry/ItemRenderer';
-import albums from '../../albumData.json';
 
 const la = require('lodash');
 
-class TimeLineViewer extends React.Component {
+class TimeLineView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.photosArr = [];
@@ -21,11 +21,12 @@ class TimeLineViewer extends React.Component {
 	}
 
 	render() {
-		// console.log(JSON.stringify(albums));
+		const { albumData } = this.props;
+		if (albumData.length === 0) return null;
 		const { albumIndex } = this.props;
 		// Dont render if album request does not exist in the map, albumIndex is not in the map or less then 0
 		if (albumIndex < 1 || albumIndex == undefined) return null;
-		let items = la.find(albums, { weekNumber: String(albumIndex) });
+		let items = la.find(albumData, { weekNumber: String(albumIndex) });
 		items = items.media;
 		this.currentAlbum = albumIndex;
 		const { width, gutter, outerGutter, debug, vertical, fullscreen } = this.state;
@@ -118,17 +119,18 @@ class TimeLineViewer extends React.Component {
 							2360: 8,
 						}}
 						onEnd={() => {
+							// TODO possible when many items lazy load them
 							// this.addItems();
 						}}
 					/>
-					{/* <style>
-{`body {
-background-color:  white;
-}`}
-</style> */}
 				</div>
 			</div>
 		);
 	}
 }
+const mapStateToProps = state => {
+	return { albumData: state.rootReducer.remoteAlbumData };
+};
+
+const TimeLineViewer = connect(mapStateToProps, null)(TimeLineView);
 export default TimeLineViewer;
