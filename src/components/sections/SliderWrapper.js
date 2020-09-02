@@ -26,7 +26,7 @@ class Wrapper extends React.Component {
 		if (articles.length === 0) return null;
 		return articles.weeks.map(week => {
 			let photo = la.find(albumData, { weekNumber: week.weekNumber });
-			photo = encodeURIComponent(`${process.env.PUBLIC_URL}/images/weeks/${week.weekNumber}/${photo.coverImage}`);
+			photo = encodeURI(`${process.env.PUBLIC_URL}/images/weeks/${week.weekNumber}/${photo.coverImage}`);
 			const { onImageClick } = this.props;
 
 			return (

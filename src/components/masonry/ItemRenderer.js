@@ -7,7 +7,7 @@ class ItemRenderer extends React.Component {
 		const { aaa } = this.props;
 		const { ratio, background, fileData, id, week } = aaa;
 
-		const photo = encodeURIComponent(`./images/weeks/${week}/${fileData}`);
+		const photo = encodeURI(`./images/weeks/${week}/${fileData}`);
 
 		return (
 			<Motion defaultStyle={{ scale: 0 }} style={{ scale: spring(1) }}>
