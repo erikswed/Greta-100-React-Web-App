@@ -159,84 +159,7 @@ Albums meta data json
         "description": "jkhkjhl",
         "size": "115603"
       },
-      {
-        "id": "week-1-4",
-        "key": "4",
-        "week": "1",
-        "fileData": "116713220_10223391513399025_3767860584776395314_n.jpg",
-        "ratio": "1.3333333333333333",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "76472"
-      },
-      {
-        "id": "week-1-5",
-        "key": "5",
-        "week": "1",
-        "fileData": "bte3eukll19t7635ly2rjgbpu1cliae.jpeg",
-        "ratio": "1.4124137931034482",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "156824"
-      },
-      {
-        "id": "week-1-6",
-        "key": "6",
-        "week": "1",
-        "fileData": "c33752c4-1bc3-42d6-b288-54f9cb226ba0.jpg",
-        "ratio": "0.6654545454545454",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "99653"
-      },
-      {
-        "id": "week-1-7",
-        "key": "7",
-        "week": "1",
-        "fileData": "DlGoaxCX0AEcrEN.jpg",
-        "ratio": "1.0",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "158286"
-      },
-      {
-        "id": "week-1-8",
-        "key": "8",
-        "week": "1",
-        "fileData": "DlGoaxEX0AAjY-7.jpg",
-        "ratio": "0.75",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "152837"
-      },
-      {
-        "id": "week-1-9",
-        "key": "9",
-        "week": "1",
-        "fileData": "h14-greta-thunberg-eu-leaders-climate-change.jpg",
-        "ratio": "0.5625",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "56767"
-      },
-      {
-        "id": "week-1-10",
-        "key": "10",
-        "week": "1",
-        "fileData": "week1SimonRehnstrom.png",
-        "ratio": "0.5333333333333333",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "2839881"
-      }
-    ]
+     ]
   },
   {
     "id": "week-2",
@@ -276,161 +199,29 @@ Albums meta data json
         "description": "jkhkjhl",
         "size": "505009"
       },
-      {
-        "id": "week-2-4",
-        "key": "4",
-        "week": "2",
-        "fileData": "3.png",
-        "ratio": "0.8100208768267223",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "1299525"
-      },
-      {
-        "id": "week-2-5",
-        "key": "5",
-        "week": "2",
-        "fileData": "4.jpg",
-        "ratio": "1.3333333333333333",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "84173"
-      },
-      {
-        "id": "week-2-6",
-        "key": "6",
-        "week": "2",
-        "fileData": "5-20-August-2018.jpg",
-        "ratio": "1.3",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "191617"
-      },
-      {
-        "id": "week-2-7",
-        "key": "7",
-        "week": "2",
-        "fileData": "6.jpg",
-        "ratio": "0.7708333333333334",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "77595"
-      },
-      {
-        "id": "week-2-8",
-        "key": "8",
-        "week": "2",
-        "fileData": "7.jpg",
-        "ratio": "0.68",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "121155"
-      },
-      {
-        "id": "week-2-9",
-        "key": "9",
-        "week": "2",
-        "fileData": "8.jpg",
-        "ratio": "0.6848591549295775",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "228293"
-      },
-      {
-        "id": "week-2-10",
-        "key": "10",
-        "week": "2",
-        "fileData": "116055257_10223391553080017_9108849133976520567_n.jpg",
-        "ratio": "0.7489583333333333",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "103979"
-      },
-      {
-        "id": "week-2-11",
-        "key": "11",
-        "week": "2",
-        "fileData": "116713220_10223391513399025_3767860584776395314_n.jpg",
-        "ratio": "1.3333333333333333",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "76472"
-      },
-      {
-        "id": "week-2-12",
-        "key": "12",
-        "week": "2",
-        "fileData": "116907529_10223391553480027_6253077748365461515_n.jpg",
-        "ratio": "0.75",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "95594"
-      },
-      {
-        "id": "week-2-13",
-        "key": "13",
-        "week": "2",
-        "fileData": "original.jpg",
-        "ratio": "0.56181818181",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "811768"
-      },
-      {
-        "id": "week-2-14",
-        "key": "14",
-        "week": "2",
-        "fileData": "originfalcopy.jpg",
-        "ratio": "1.1378947368421053",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "159969"
-      },
-      {
-        "id": "week-2-15",
-        "key": "15",
-        "week": "2",
-        "fileData": "thunbergafp.jpg",
-        "ratio": "0.5",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "119188"
-      }
-  
     ]
   },
 ```
-# Current version:  0.1.5
+# Current version:  0.1.6
 
 ## Change log
-##### App Version: 1.0.5 - 04/05/2016App Version: 0.1.4 Build: 1598170287004 Date: (23.08.2020 10:11:27)
-Changes:
-- Added component ShowBuildAndVersion to show app Version.
-- Fixed when clicking the same album the TimelineViewer disappears.
-
-##### App Version: 0.1.5 Build: 1598179258474 Date: (23.08.2020 12:40:58)
-Changes:
- - Just added the text "(we seek dev help if you're a Reactjs wizard please join)." in the Resume.json
-
-##### App Version: 0.1.6 (UPCOMING) - BRANSH feature-add-redux merged with master ok)
+##### App Version: 0.1.6 Build: 1599076010736 Date: (02.09.2020 21:46:50)
 CHANGES:
 - Fixed: on mobile screen menu text too long pushed screen out.
 - Fixed: Images with space in their names did not render in img added encodeURIComponent()
 - System: Introduced React-Redux. 
 - Moved out all json files metadata into public folder as a prep for a new backend later
 
+##### App Version: 0.1.5 Build: 1598179258474 Date: (23.08.2020 12:40:58)
+Changes:
+ - Just added the text "(we seek dev help if you're a Reactjs wizard please join)." in the Resume.json
+ - running some tests
+
+
+##### App Version: 1.0.5 - 04/05/2016App Version: 0.1.4 Build: 1598170287004 Date: (23.08.2020 10:11:27)
+Changes:
+- Added component ShowBuildAndVersion to show app Version.
+- Fixed when clicking the same album the TimelineViewer disappears.
 
 
 ## Build
