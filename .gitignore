@@ -93,5 +93,5 @@ typings/
 node_modules
 
 # files
-.workspace.code-workspace
 package-lock.json
+workspace.code-workspace
