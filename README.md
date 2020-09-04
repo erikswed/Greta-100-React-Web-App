@@ -224,6 +224,13 @@ Changes:
 - Fixed when clicking the same album the TimelineViewer disappears.
 
 
+## Roadmap
+
+- [ ] Backend server 
+- [ ] Add suppoer for all types of files in an album
+- [ ] 
+- [ ] 
+
 ## Build
 
 1. Clone the repo:
@@ -249,4 +256,4 @@ Feel free to fork this project and help out
 
 ## License
 
-MIT
+LGPLv3

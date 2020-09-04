@@ -25,7 +25,6 @@ class Content extends Component {
 			<main>
 				<AboutMe />
 				<TimeLine onChangeAlbum={this.onChangeAlbum} />
-				{/* <ApiDemo albumIndex={currentAlbumIndex} /> */}
 				<TimeLineViewer albumIndex={currentAlbumIndex} />
 				<Articles />
 			</main>

@@ -91,3 +91,6 @@ typings/
 .history
 .vscode
 node_modules
+
+# files
+*code-workspace
