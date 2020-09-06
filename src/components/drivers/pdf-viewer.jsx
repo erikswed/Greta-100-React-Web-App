@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 // Copyright (c) 2017 PlanGrid, Inc.
 
 import React from 'react';
