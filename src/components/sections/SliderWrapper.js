@@ -68,14 +68,14 @@ class Wrapper extends React.Component {
 			centerMode: false,
 			focusOnSelect: false,
 			className: 'center',
-			slidesToShow: 4,
+			slidesToShow: 3,
 			afterChange: afterChanged,
 			beforeChange: beforeChanged,
 			responsive: [
 				{
 					breakpoint: 1024,
 					settings: {
-						slidesToShow: 3,
+						slidesToShow: 4,
 						slidesToScroll: 3,
 						infinite: false,
 					},

@@ -11,12 +11,17 @@
   "dependencies": {
     "axios": "^0.19.2",
     "clean-tag": "^3.1.1",
+    "comma-separated-values": "^3.6.4",
     "lodash": "^4.17.19",
+    "mammoth": "^1.4.11",
     "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
     "normalize-wheel": "^1.0.1",
+    "pdfjs-dist": "^1.8.357",
     "preval.macro": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-data-grid": "^7.0.0-canary.16",
     "react-dom": "^16.8.4",
     "react-motion": "^0.5.2",
     "react-redux": "^7.2.1",
@@ -32,7 +37,9 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
-    "typescript": "^3.9.7"
+    "three": "^0.118.3",
+    "typescript": "^3.9.7",
+    "xlsx": "^0.16.3"
   },
   "peerDependencies": {
     "react": "^16.13.1",
