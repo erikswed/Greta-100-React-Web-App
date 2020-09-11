@@ -8,8 +8,9 @@ import Loading from '../file-viewer/loading';
 
 class DocXViewer extends Component {
 	componentDidMount() {
+		const { filePath } = this.props;
 		const jsonFile = new XMLHttpRequest();
-		jsonFile.open('GET', this.props.filePath, true);
+		jsonFile.open('GET', filePath, true);
 		jsonFile.send();
 		jsonFile.responseType = 'arraybuffer';
 		jsonFile.onreadystatechange = () => {

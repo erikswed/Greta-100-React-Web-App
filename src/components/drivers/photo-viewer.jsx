@@ -8,7 +8,6 @@ export default class PhotoViewer extends Component {
 	componentDidMount() {
 		const { originalWidth, originalHeight } = this.props;
 		const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
-
 		this.props.texture.image.style.width = `${imageDimensions.width}px`;
 		this.props.texture.image.style.height = `${imageDimensions.height}px`;
 		this.props.texture.image.setAttribute('class', 'photo');
@@ -40,9 +39,10 @@ export default class PhotoViewer extends Component {
 	}
 
 	render() {
+		const { width, height } = this.props;
 		const containerStyles = {
-			width: `${this.props.width}px`,
-			height: `${this.props.height}px`,
+			width: `${width}px`,
+			height: `${height}px`,
 		};
 
 		return <div style={containerStyles} className="photo-viewer-container" id="pg-photo-container" />;

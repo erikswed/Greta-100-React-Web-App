@@ -28,11 +28,12 @@ export default class PhotoViewerWrapper extends Component {
 	componentDidMount() {
 		// spike on using promises and a different loader or adding three js loading manager
 		const loader = new THREE.TextureLoader();
+		const { filePath } = this.props;
 		loader.crossOrigin = '';
 		// load a resource
 		loader.load(
 			// resource URL
-			this.props.filePath,
+			filePath,
 			// Function when resource is   loaded
 			texture => {
 				this.setState({
@@ -52,11 +53,12 @@ export default class PhotoViewerWrapper extends Component {
 	}
 
 	render() {
-		if (!this.state.imageLoaded) {
+		const { originalWidth, originalHeight, imageLoaded } = this.state;
+		const { fileType } = this.prop;
+		if (!imageLoaded) {
 			return <Loading />;
 		}
-		const { originalWidth, originalHeight } = this.state;
-		const PhotoDriver = getPhotoDriver(originalWidth, originalHeight, this.props.fileType);
+		const PhotoDriver = getPhotoDriver(originalWidth, originalHeight, fileType);
 
 		return <PhotoDriver {...this.state} {...this.props} />;
 	}

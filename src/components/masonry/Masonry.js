@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withResizeDetector } from 'react-resize-detector';
 import VisibilitySensor from 'react-visibility-sensor';
 import { max, map, compact, last } from 'lodash';
+import '../../styles/video.scss';
 
 class Masonry extends React.Component {
 	constructor(props) {

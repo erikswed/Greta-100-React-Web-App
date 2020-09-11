@@ -29,10 +29,11 @@ class Photo360Viewer extends Component {
 	}
 
 	componentDidMount() {
+		const { texture } = this.props;
 		const el = document.getElementById('360-photo');
 		const positionInfo = el.getBoundingClientRect();
-		const height = positionInfo.height;
-		const width = positionInfo.width;
+		const { height } = positionInfo.height;
+		const { width } = positionInfo.width;
 
 		// add rendered
 		this.renderer = new THREE.WebGLRenderer();
@@ -52,7 +53,7 @@ class Photo360Viewer extends Component {
 
 		// creation of the sphere material
 		this.sphereMaterial = new THREE.MeshBasicMaterial();
-		this.sphereMaterial.map = this.props.texture;
+		this.sphereMaterial.map = texture;
 		const sphereMesh = new THREE.Mesh(this.sphere, this.sphereMaterial);
 		this.scene.add(sphereMesh);
 		this.updateView();
@@ -65,8 +66,8 @@ class Photo360Viewer extends Component {
 
 	onMouseMove(event) {
 		const { savedX, savedY, savedLongitude, savedLatitude } = this.state;
-
-		if (this.state.manualControl) {
+		const { manualControl } = this.state;
+		if (manualControl) {
 			const newLongitude = (savedX - event.clientX) * 0.1 + savedLongitude;
 			const newLatitude = (event.clientY - savedY) * 0.1 + savedLatitude;
 			this.setState({
@@ -81,10 +82,11 @@ class Photo360Viewer extends Component {
 	}
 
 	onMouseDown(event) {
+		const { longitude, latitude } = this.state;
 		event.preventDefault();
 		this.setState({
-			savedLongitude: this.state.longitude,
-			savedLatitude: this.state.latitude,
+			savedLongitude: longitude,
+			savedLatitude: latitude,
 			savedX: event.clientX,
 			savedY: event.clientY,
 			manualControl: true,
@@ -92,15 +94,15 @@ class Photo360Viewer extends Component {
 	}
 
 	updateView() {
-		const latitude = Math.max(-85, Math.min(85, this.state.latitude));
+		const { latitude, longitude } = this.state;
+
+		const lat = Math.max(-85, Math.min(85, latitude));
 
 		// moving the camera according to current latitude (vertical movement)
 		// and longitude (horizontal movement)
-		this.camera.target.x =
-			500 * Math.sin(THREE.Math.degToRad(90 - latitude)) * Math.cos(THREE.Math.degToRad(this.state.longitude));
-		this.camera.target.y = 500 * Math.cos(THREE.Math.degToRad(90 - latitude));
-		this.camera.target.z =
-			500 * Math.sin(THREE.Math.degToRad(90 - latitude)) * Math.sin(THREE.Math.degToRad(this.state.longitude));
+		this.camera.target.x = 500 * Math.sin(THREE.Math.degToRad(90 - lat)) * Math.cos(THREE.Math.degToRad(longitude));
+		this.camera.target.y = 500 * Math.cos(THREE.Math.degToRad(90 - lat));
+		this.camera.target.z = 500 * Math.sin(THREE.Math.degToRad(90 - lat)) * Math.sin(THREE.Math.degToRad(longitude));
 		this.camera.lookAt(this.camera.target);
 
 		this.renderer.render(this.scene, this.camera);

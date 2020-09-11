@@ -13,7 +13,8 @@ class XlxsViewer extends Component {
 	}
 
 	parse() {
-		const dataArr = new Uint8Array(this.props.data);
+		const { data } = this.props;
+		const dataArr = new Uint8Array(data);
 		const arr = [];
 
 		for (let i = 0; i !== dataArr.length; i += 1) {
@@ -43,7 +44,7 @@ class XlxsViewer extends Component {
 	}
 
 	renderSheetData(sheet) {
-		const csvProps = Object.assign({}, this.props, { data: sheet });
+		const csvProps = { ...this.props, data: sheet };
 		return <CsvViewer {...csvProps} />;
 	}
 

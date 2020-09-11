@@ -7,18 +7,18 @@ import Loading from './loading';
 function WithFetching(WrappedComponent) {
 	return class FetchComponent extends Component {
 		constructor(props) {
-			// eslint-disable-line no-shadow
 			super(props);
 			this.state = {};
-			this.xhr = this.createRequest(props.newProps.filePath);
+			this.xhr = this.createRequest(props.filePath);
 		}
 
 		componentDidMount() {
 			try {
 				this.fetch();
 			} catch (e) {
-				if (this.props.onError) {
-					this.props.onError(e);
+				const { onError } = this.props;
+				if (onError) {
+					onError(e);
 				}
 				this.setState({ error: 'fetch error' });
 			}
@@ -43,8 +43,9 @@ function WithFetching(WrappedComponent) {
 				xhr = null;
 				return null;
 			}
-			if (this.props.newProps.responseType) {
-				xhr.responseType = this.props.newProps.responseType;
+			const { responseType } = this.props;
+			if (responseType) {
+				xhr.responseType = responseType;
 			}
 
 			xhr.onload = () => {
@@ -52,7 +53,7 @@ function WithFetching(WrappedComponent) {
 					this.setState({ error: `fetch error with status ${xhr.status}` });
 					return;
 				}
-				const resp = this.props.newProps.responseType ? xhr.response : xhr.responseText;
+				const resp = responseType ? xhr.response : xhr.responseText;
 
 				this.setState({ data: resp });
 			};
@@ -75,12 +76,17 @@ function WithFetching(WrappedComponent) {
 				return <h1>CORS not supported..</h1>;
 			}
 
-			if (this.state.error) {
-				return <Error {...this.props} error={this.state.error} />;
+			const { error } = this.state;
+
+			if (error) {
+				return <Error {...this.props} error={error} />;
 			}
 
-			if (this.state.data) {
-				return <WrappedComponent data={this.state.data} {...this.props} />;
+			const { data } = this.state;
+
+			if (data) {
+				const { filePath, responseType } = this.props;
+				return <WrappedComponent data={data} filePath={filePath} responseType={responseType} />;
 			}
 			return <Loading />;
 		}

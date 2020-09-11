@@ -16,42 +16,22 @@ class TextViewer extends Component {
 		this.setState({ loading: false });
 	}
 
-	showFile = async e => {
-		e.preventDefault();
-		const reader = new FileReader();
-		reader.onload = async e => {
-			const text = e.target.result;
-			console.log(text);
-			alert(text);
-		};
-		reader.readAsText(e.target.files[0]);
-	};
-
 	renderLoading() {
-		if (this.state.loading) {
+		const { loading } = this.state;
+		if (loading) {
 			return <Loading />;
 		}
 		return null;
 	}
 
 	render = () => {
-		return <TextFileReader txt={this.props.filePath} />;
+		const { filePath } = this.props;
+		return <TextFileReader txt={filePath} />;
 	};
 }
 
 export default TextViewer;
 
-/*
-	Read a text file and out put the content.
-	
-	Example Usage:
-
-	var myTxt = require("./myTxt.txt");
-	...
-	<TextFileReader
-		txt={myTxt}
-	/>
- */
 export class TextFileReader extends React.Component {
 	constructor(props) {
 		super(props);
@@ -62,7 +42,8 @@ export class TextFileReader extends React.Component {
 	}
 
 	componentDidMount() {
-		this.readTextFile(this.props.txt);
+		const { txt } = this.props;
+		this.readTextFile(txt);
 	}
 
 	readTextFile = file => {
@@ -82,13 +63,14 @@ export class TextFileReader extends React.Component {
 	};
 
 	render() {
+		const { text } = this.state;
 		return (
 			<div
 				style={{
 					backgroundColor: 'white',
 				}}
 			>
-				{this.state.text.split('\n').map(item => {
+				{text.split('\n').map(item => {
 					return (
 						<span key={uniqueId()}>
 							{item}
