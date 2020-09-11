@@ -28,7 +28,6 @@ class Wrapper extends React.Component {
 			let photo = la.find(albumData, { weekNumber: week.weekNumber });
 			photo = encodeURI(`${process.env.PUBLIC_URL}/images/weeks/${week.weekNumber}/${photo.coverImage}`);
 			const { onImageClick } = this.props;
-
 			return (
 				// Timeline items
 				<section className="timeline-carousel" key={week.weekNumber}>

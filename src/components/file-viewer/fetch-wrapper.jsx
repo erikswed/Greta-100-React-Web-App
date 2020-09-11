@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 import Error from './error';
 import Loading from './loading';
 
-function withFetching(WrappedComponent, props) {
+function WithFetching(WrappedComponent) {
 	return class FetchComponent extends Component {
 		constructor(props) {
 			// eslint-disable-line no-shadow
 			super(props);
 			this.state = {};
-			this.xhr = this.createRequest(props.filePath);
+			this.xhr = this.createRequest(props.newProps.filePath);
 		}
 
 		componentDidMount() {
@@ -34,17 +34,17 @@ function withFetching(WrappedComponent, props) {
 			if ('withCredentials' in xhr) {
 				// XHR for Chrome/Firefox/Opera/Safari.
 				xhr.open('GET', path, true);
-			// } else if (typeof XDomainRequest !== 'undefined') {
-			// 	// XDomainRequest for IE.
-			// 	xhr = new XDomainRequest();
-			// 	xhr.open('GET', path);
+				// } else if (typeof XDomainRequest !== 'undefined') {
+				// 	// XDomainRequest for IE.
+				// 	xhr = new XDomainRequest();
+				// 	xhr.open('GET', path);
 			} else {
 				// CORS not supported.
 				xhr = null;
 				return null;
 			}
-			if (props.responseType) {
-				xhr.responseType = props.responseType;
+			if (this.props.newProps.responseType) {
+				xhr.responseType = this.props.newProps.responseType;
 			}
 
 			xhr.onload = () => {
@@ -52,7 +52,7 @@ function withFetching(WrappedComponent, props) {
 					this.setState({ error: `fetch error with status ${xhr.status}` });
 					return;
 				}
-				const resp = props.responseType ? xhr.response : xhr.responseText;
+				const resp = this.props.newProps.responseType ? xhr.response : xhr.responseText;
 
 				this.setState({ data: resp });
 			};
@@ -87,4 +87,4 @@ function withFetching(WrappedComponent, props) {
 	};
 }
 
-export default withFetching;
+export default WithFetching;

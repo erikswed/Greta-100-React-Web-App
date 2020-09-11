@@ -1,17 +1,9 @@
+/* eslint-disable no-return-assign */
 import React from 'react';
 import { Motion, spring } from 'react-motion';
-import FileViewer from '../file-viewer/file-viewer';
-import {
-	CsvViewer,
-	DocxViewer,
-	VideoViewer,
-	XlsxViewer,
-	XBimViewer,
-	PDFViewer,
-	UnsupportedViewer,
-	PhotoViewerWrapper,
-	AudioViewer,
-} from '../drivers';
+import { DocxViewer, VideoViewer, XlsxViewer, PDFViewer, UnsupportedViewer, AudioViewer, TextViewer } from '../drivers';
+import '../../styles/item-renderer.scss';
+import WithFetching from '../file-viewer/fetch-wrapper';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class ItemRenderer extends React.Component {
@@ -55,16 +47,26 @@ class ItemRenderer extends React.Component {
 	}
 
 	render() {
+		// <WithFetching XlsxViewer={XlsxViewer} newProps={newProps} fileType="xlsx" filePath={theFile} />
+
 		const { items } = this.props;
 		const { mediaType } = items;
 		const { fileData, week } = items;
-		const theFile = encodeURI(`./images/weeks/${week}/${fileData}`);
+		const filePath = encodeURI(`./images/weeks/${week}/${fileData}`);
 		switch (mediaType) {
 			case 'csv': {
 				break;
 			}
 			case 'xlsx': {
-				break;
+				const newProps = { ...this.props, responseType: 'arraybuffer', filePath: 'xlsx',  filePath  };
+				// return withFetching(XlsxViewer, newProps);
+				return (
+					<div className="pg-viewer-wrapper">
+						<div className="pg-viewer" id="pg-viewer">
+							<XlsxViewer newProps={newProps} />
+						</div>
+					</div>
+				);
 			}
 			case 'jpg': {
 				return this.driveForImage();
@@ -85,7 +87,7 @@ class ItemRenderer extends React.Component {
 				return (
 					<div className="pg-viewer-wrapper">
 						<div className="pg-viewer" id="pg-viewer">
-							<PDFViewer fileType="pdf" filePath={theFile} />
+							<PDFViewer fileType="pdf" filePath={filePath} />
 						</div>
 					</div>
 				);
@@ -94,7 +96,7 @@ class ItemRenderer extends React.Component {
 				return (
 					<div className="pg-viewer-wrapper">
 						<div className="pg-viewer" id="pg-viewer">
-							<DocxViewer fileType="docx" filePath={theFile} />
+							<DocxViewer fileType="docx" filePath={filePath} />
 						</div>
 					</div>
 				);
@@ -103,7 +105,25 @@ class ItemRenderer extends React.Component {
 				return (
 					<div className="pg-viewer-wrapper">
 						<div className="pg-viewer" id="pg-viewer">
-							<VideoViewer fileType="pdf" filePath={theFile} />
+							<VideoViewer fileType="pdf" filePath={filePath} />
+						</div>
+					</div>
+				);
+			}
+			case 'txt': {
+				return (
+					<div className="pg-viewer-wrapper">
+						<div className="pg-viewer" id="pg-viewer">
+							<TextViewer fileType="txt" filePath={filePath} />
+						</div>
+					</div>
+				);
+			}
+			case 'mp3': {
+				return (
+					<div className="pg-viewer-wrapper">
+						<div className="pg-viewer" id="pg-viewer">
+							<AudioViewer fileType="mp3" filePath={filePath} />
 						</div>
 					</div>
 				);

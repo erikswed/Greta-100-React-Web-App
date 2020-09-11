@@ -31,9 +31,8 @@ function Hero({ articles }) {
 				<div className="columns is-mobile">
 					<div className="column" />
 					{articles.basics.profiles.map(value => {
-						const id = uniqueId();
 						return (
-							<div key={id} className="column has-text-centered">
+							<div key={uniqueId()} className="column has-text-centered">
 								<a href={value.url} target="blank" className="is-hovered" title={value.network}>
 									<span className="icon is-medium is-">
 										<i className={value.x_icon} />

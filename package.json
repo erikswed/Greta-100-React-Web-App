@@ -21,7 +21,7 @@
     "preval.macro": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-data-grid": "^7.0.0-canary.16",
+    "react-data-grid": "^5.0.5",
     "react-dom": "^16.8.4",
     "react-motion": "^0.5.2",
     "react-redux": "^7.2.1",
@@ -37,9 +37,9 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
-    "three": "^0.118.3",
+    "three": "^0.85.2",
     "typescript": "^3.9.7",
-    "xlsx": "^0.16.3"
+    "xlsx": "^0.10.1"
   },
   "peerDependencies": {
     "react": "^16.13.1",

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import XLSX from 'xlsx';
 
 import CsvViewer from './csv-viewer';
+import WithFetching from '../file-viewer/fetch-wrapper';
 
 class XlxsViewer extends Component {
 	constructor(props) {
@@ -57,4 +58,4 @@ class XlxsViewer extends Component {
 	}
 }
 
-export default XlxsViewer;
+export default WithFetching(XlxsViewer);
