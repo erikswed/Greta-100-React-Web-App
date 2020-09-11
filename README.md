@@ -23,7 +23,7 @@ This is a fan website built using ReactJS and Bulma as the CSS framework.
 ![Alt text](https://github.com/erikswed/Greta-100-React-Web-App/blob/master/preview-film.gif)
 
 ## Requirements 
-A website for Greta Thunberg Fridays For Future and for Greta's different engagements, such as award ceremonies, nominations, events and personal happenings. Practically everything about her journey. Greta Thunberg's concept is to every Friday make a protest, either outside or indoors, to let the world know about the climate and ecological crisis. One particularly important thing is the "weeks". Greta is now as-of writing on her 106'th week of protesting. By highlighting the "week" as a central organizer /, Fridays For Future have created their own time calendar era with the start at week "ONE" on Monday August 20 2018.
+A website for Greta Thunberg Fridays For Future and for Greta's different engagements, such as award ceremonies, nominations, events and personal happenings. Practically everything about her journey. Greta Thunberg's concept is to every Friday make a protest, either outside or indoors, to let the world know about the climate and ecological crisis. One particularly important thing is the "weeks". Greta is now as-of writing on her 106'th week of protesting. By highlighting the "week" as a central organizer /, Fridays For Future have created their own time calendar era with the start at week ONE on Monday August 2018.
 
 ![Alt text](https://github.com/erikswed/Greta-100-React-Web-App/blob/master/weeks1.png)
 
@@ -205,6 +205,12 @@ Albums meta data json
 # Current version:  0.1.6
 
 ## Change log
+
+##### App Version: 0.1.7(UPCOMING)
+CHANGES:
+- Added support for docx, xlsx, mp3, pdf, mp4 and txt files to be shown in albums
+- Cleanup code with Eslint and Pretty print
+
 ##### App Version: 0.1.6 Build: 1599076010736 Date: (02.09.2020 21:46:50)
 CHANGES:
 - Fixed: on mobile screen menu text too long pushed screen out.
