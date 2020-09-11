@@ -8,6 +8,7 @@ src='https://www.theworldcounts.com/embed/challenges/93?background_color=white&c
 style={{ border: 'none', paddingRight: '5px' }} height='100' width='300'>
 </p>
            
+ This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
             
 # Greta Thunberg the first 100 weeks in pictures
 
