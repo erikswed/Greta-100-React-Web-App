@@ -3,10 +3,7 @@
 <img style="max-width:100%" title="Earth's latest data for atmospheric CO2" alt="Atmospheric CO2" src="https://assets.show.earth/widget-co2/ppm-0040.png" /></a>
 <!--End CO2 Widget-->
 
-<p title='Hectares of forests cut down or burned'
-src='https://www.theworldcounts.com/embed/challenges/93?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=14'
-style={{ border: 'none', paddingRight: '5px' }} height='100' width='300'>
-</p>
+<p><p>
            
  This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
             
@@ -19,14 +16,16 @@ This is a fan website built using ReactJS and Bulma as the CSS framework.
 
 (we are looking for contributors to help build this site!)
 
-[Check out the live site!](Http://greta.portplays.com/)
+## [Check out the live site!](Http://greta.portplays.com/)
 
-![Alt text](https://github.com/erikswed/Greta-100-React-Web-App/blob/master/preview-film.gif)
+## [Connect with Us at Facebook!](https://www.facebook.com/Greta-Thunberg-the-first-100-weeks-in-pictures-246201326553309) 
+
+![](greta.portplays.com/images/preview-film.gif)
 
 ## Requirements 
 A website for Greta Thunberg Fridays For Future and for Greta's different engagements, such as award ceremonies, nominations, events and personal happenings. Practically everything about her journey. Greta Thunberg's concept is to every Friday make a protest, either outside or indoors, to let the world know about the climate and ecological crisis. One particularly important thing is the "weeks". Greta is now as-of writing on her 106'th week of protesting. By highlighting the "week" as a central organizer /, Fridays For Future have created their own time calendar era with the start at week ONE on Monday August 2018.
 
-![Alt text](https://github.com/erikswed/Greta-100-React-Web-App/blob/master/weeks1.png)
+![](greta.portplays.com/images/weeks1.png)
 
 
 
@@ -203,13 +202,14 @@ Albums meta data json
     ]
   },
 ```
-# Current version:  0.1.6
+# Current version:  0.1.7
 
 ## Change log
 
-##### App Version: 0.1.7(UPCOMING)
+##### App Version: 0.1.7 Build: 1600071819377 Date: (14.09.2020 10:23:39)
 CHANGES:
-- Added support for docx, xlsx, mp3, pdf, mp4 and txt files to be shown in albums
+- This is now a development release for presentation only! This version is not production ready!
+- Added support for docx, xlsx, mp3, pdf, mp4 and txt files to be shown in albums. (You can view demo files under week1 that will be removed later)
 - Cleanup code with Eslint and Pretty print
 
 ##### App Version: 0.1.6 Build: 1599076010736 Date: (02.09.2020 21:46:50)
