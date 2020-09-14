@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withResizeDetector } from 'react-resize-detector';
 import VisibilitySensor from 'react-visibility-sensor';
 import { max, map, compact, last } from 'lodash';
+import '../../styles/video.scss';
 
 class Masonry extends React.Component {
 	constructor(props) {
@@ -220,10 +221,10 @@ class Masonry extends React.Component {
 		if (index + 1 === maxIndex) {
 			this._setContainerHeight();
 		}
-		const { ratio, background, fileData, id, week } = item;
+		const { ratio, background, fileData, id, week, mediaType } = item;
 		return isVisible ? (
 			<li key={id} style={style}>
-				<Component aaa={{ ratio, background, fileData, id, week }} />
+				<Component items={{ ratio, background, fileData, id, week, mediaType }} />
 				{items.length === index + 1 && (
 					<div
 						style={{

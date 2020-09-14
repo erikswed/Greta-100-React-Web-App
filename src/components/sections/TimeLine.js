@@ -1,7 +1,8 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import React, { useRef } from 'react';
+import React from 'react';
 import SliderWrapper from './SliderWrapper';
+import '../../styles/time-line-carousel.css';
 
 class Timeline extends React.Component {
 	constructor(props) {
