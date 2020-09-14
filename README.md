@@ -202,30 +202,30 @@ Albums meta data json
     ]
   },
 ```
-# Current version:  0.1.7
+# Current version:  1.0.7
 
 ## Change log
 
-##### App Version: 0.1.7 Build: 1600071819377 Date: (14.09.2020 10:23:39)
+##### App Version: 1.0.7 Build: 1600071819377 Date: (14.09.2020 10:23:39)
 CHANGES:
 - This is now a development release for presentation only! This version is not production ready!
 - Added support for docx, xlsx, mp3, pdf, mp4 and txt files to be shown in albums. (You can view demo files under week1 that will be removed later)
 - Cleanup code with Eslint and Pretty print
 
-##### App Version: 0.1.6 Build: 1599076010736 Date: (02.09.2020 21:46:50)
+##### App Version: 1.0.6 Build: 1599076010736 Date: (02.09.2020 21:46:50)
 CHANGES:
 - Fixed: on mobile screen menu text too long pushed screen out.
 - Fixed: Images with space in their names did not render in img added encodeURIComponent()
 - System: Introduced React-Redux. 
 - Moved out all json files metadata into public folder as a prep for a new backend later
 
-##### App Version: 0.1.5 Build: 1598179258474 Date: (23.08.2020 12:40:58)
+##### App Version: 1.0.5 Build: 1598179258474 Date: (23.08.2020 12:40:58)
 Changes:
  - Just added the text "(we seek dev help if you're a Reactjs wizard please join)." in the Resume.json
  - running some tests
 
 
-##### App Version: 1.0.5 - 04/05/2016App Version: 0.1.4 Build: 1598170287004 Date: (23.08.2020 10:11:27)
+##### App Version: 1.0.4 - 04/05/2016App Version: 0.1.4 Build: 1598170287004 Date: (23.08.2020 10:11:27)
 Changes:
 - Added component ShowBuildAndVersion to show app Version.
 - Fixed when clicking the same album the TimelineViewer disappears.
