@@ -37,7 +37,8 @@ class OverlayMp3 extends Component {
 		const { hoverIndex } = this.state;
 		return (
 			<div className={`box-container-mp3 ${hoverIndex === "mp3-box" ? 'hovered-mp3' : ''}`}
-			 id={"mp3-box"} key={fileData} 	
+			 id={"mp3-box"} key={fileData} 
+			 onMouseLeave={this.handleMouseLeave}
 			>
 				<div className="clickBox-mp3"
 					onMouseEnter={this.handleMouseEnter}

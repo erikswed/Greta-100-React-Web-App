@@ -202,12 +202,11 @@ Albums meta data json
     ]
   },
 ```
-# Current version:  1.0.7
+# Current version:  1.0.8
 
 ## Change log
 
-##### App Version: 1.0.8 
-
+##### App Version: 1.0.8 Build: 1600892449056 Date: (23.09.2020 22:20:49)
 CHANGES:
 - Added feature-add-items-overlay-with-options-like-download-open-change-description
 

@@ -38,6 +38,7 @@ class OverlayMp4 extends Component {
 		return (
 			<div className={`box-container-mp4 ${hoverIndex === "mp4-box" ? 'hovered-mp4' : ''}`}
 			 id={"mp4-box"} key={fileData} 	
+			 onMouseLeave={this.handleMouseLeave}
 			>
 				<div className="clickBox-mp4"
 					onMouseEnter={this.handleMouseEnter}
