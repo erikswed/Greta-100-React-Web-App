@@ -23,14 +23,14 @@ class AudioViewer extends Component {
 		}
 		return null;
 	}
-
+// bottom: 0; position: fixed; right: 0;
 	render() {
 		const { loading } = this.state;
 		const visibility = loading ? 'hidden' : 'visible';
 		const { filePath } = this.props;
 		return (
 			<div className="pg-driver-view">
-				<div className="video-container">
+				<div className="audio-container" style={{ bottom: '0', position: `absolute` }}>
 					{this.renderLoading()}
 					<audio style={{ visibility }} controls onCanPlay={e => this.onCanPlay(e)} src={filePath}>
 						<track kind="captions" />
