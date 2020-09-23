@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import Masonry from '../masonry/Masonry';
 import VerticalMasonry from '../masonry/VerticalMasonry';
 import ItemRenderer from '../masonry/ItemRenderer';
-
 const la = require('lodash');
 
 class TimeLineView extends React.Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.photosArr = [];
 		this.currentAlbum = 0;
 
@@ -29,14 +28,14 @@ class TimeLineView extends React.Component {
 		let items = la.find(albumData, { weekNumber: String(albumIndex) });
 		items = items.media;
 		this.currentAlbum = albumIndex;
-		const { width, gutter, outerGutter, debug, vertical, fullscreen } = this.state;
+		const { width, gutter, outerGutter, debug, vertical } = this.state;
 		const LeComponent = vertical ? Masonry : VerticalMasonry;
 
 		return (
 			<div>
 				<div
 					style={{
-						position: fullscreen && 'absolute',
+						position: 'absolute',
 						zIndex: 2,
 					}}
 				>
@@ -81,15 +80,12 @@ class TimeLineView extends React.Component {
 					<button type="button" onClick={() => this.setState({ width: '100%' })}>
 						100%
 					</button>
-					<button type="button" onClick={() => this.setState({ fullscreen: !fullscreen })}>
-						{fullscreen ? 'Fullscreen off' : 'Fullscreen on'}
-					</button>
 				</div>
 				<div
 					style={{
 						width,
-						height: !fullscreen && 600,
-						position: fullscreen ? 'initial' : 'relative',
+						height: 1000,
+						position: 'relative',
 						margin: '0 auto',
 					}}
 				>

@@ -1,4 +1,5 @@
 import React from 'react';
+// TODO do we still need this www.flaticon.com attribution
 
 function Footer() {
 	return (
@@ -10,6 +11,16 @@ function Footer() {
 						<strong>Erik Hellberg</strong>
 					</a>
 				</p>
+				<div>
+					Icons made by{' '}
+					<a href="https://www.flaticon.com/authors/prettycons" title="prettycons">
+						prettycons
+					</a>{' '}
+					from{' '}
+					<a href="https://www.flaticon.com/" title="Flaticon">
+						www.flaticon.com
+					</a>
+				</div>
 			</div>
 		</footer>
 	);
