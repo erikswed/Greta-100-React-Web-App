@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import { withResizeDetector } from 'react-resize-detector';
 import VisibilitySensor from 'react-visibility-sensor';
 import { max, map, compact, last } from 'lodash';
-import '../../styles/video.scss';
 
 class Masonry extends React.Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.container = React.createRef();
 		this.list = React.createRef();
 		this.state = {
@@ -24,22 +23,11 @@ class Masonry extends React.Component {
 		this._onScroll = this._onScroll.bind(this);
 	}
 
-	//  componentDidUpdate() {
-	// 	const { onSetMasonryHeight } = this.props;
-	// 	setTimeout(() => {
-	// 		onSetMasonryHeight(this.list.current.clientHeight);
-	// 	}, 50);
-	//   }
-
 	componentDidMount() {
 		this.setState({
 			mounted: true,
 		});
 		this.container.current.addEventListener('scroll', this._onScroll, false);
-		// const { onSetMasonryHeight } = this.props;
-		// setTimeout(() => {
-		// 	onSetMasonryHeight(this.list.current.clientHeight);
-		// }, 50);
 	}
 
 	UNSAFE_componentWillReceiveProps({ width }) {
@@ -86,22 +74,10 @@ class Masonry extends React.Component {
 	_getContainerStyle() {
 		const { infinite, debug } = this.props;
 
-		const infiniteStyles = infinite
-			? {
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					overflow: 'auto',
-			  }
-			: {};
-
 		return {
 			outline: debug && '1px solid seagreen',
 			width: '100%',
 			position: 'relative',
-			...infiniteStyles,
 		};
 	}
 
