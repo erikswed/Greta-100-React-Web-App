@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Masonry from '../masonry/Masonry';
-import VerticalMasonry from '../masonry/VerticalMasonry';
 import ItemRenderer from '../masonry/ItemRenderer';
 const la = require('lodash');
 
@@ -15,7 +14,6 @@ class TimeLineView extends React.Component {
 			gutter: 16,
 			outerGutter: true,
 			debug: true,
-			vertical: true,
 		};
 	}
 
@@ -28,8 +26,7 @@ class TimeLineView extends React.Component {
 		let items = la.find(albumData, { weekNumber: String(albumIndex) });
 		items = items.media;
 		this.currentAlbum = albumIndex;
-		const { width, gutter, outerGutter, debug, vertical } = this.state;
-		const LeComponent = vertical ? Masonry : VerticalMasonry;
+		const { width, gutter, outerGutter, debug } = this.state;
 
 		return (
 			<div>
@@ -59,9 +56,6 @@ class TimeLineView extends React.Component {
 					<button type="button" onClick={() => this.setState({ debug: !debug })}>
 						debug
 					</button>
-					<button type="button" onClick={() => this.setState({ vertical: !vertical })}>
-						{vertical ? 'Vertical' : 'Horizontal'}
-					</button>
 					<button type="button" onClick={() => this.setState({ width: 360 })}>
 						360
 					</button>
@@ -84,12 +78,12 @@ class TimeLineView extends React.Component {
 				<div
 					style={{
 						width,
-						height: 1000,
+						height:  "auto",
 						position: 'relative',
 						margin: '0 auto',
 					}}
 				>
-					<LeComponent
+					<Masonry
 						infinite
 						items={items}
 						itemRenderer={ItemRenderer}
