@@ -1,33 +1,47 @@
-// Copyright (c) 2017 PlanGrid, Inc.
 
+// This is the default copy the structure for 
+// new filetypes if it need custom settings like mp3
 .pg-viewer-wrapper {
   height: 100%;
   display: flex;
   flex-direction: row;
-
+    
   .pg-viewer {
     height: 100%;
     position: relative;
     flex-grow: 2;
-
-    .pg-driver-view {
-      margin: auto;
-      width: 100%;
-      height: 100%;
-
-      .loading {
-        position: relative;
-      }
-
-      canvas, .react-grid-Container {
-        width:100%;
-      }
-    }
+    background-color: white;
   }
+}
 
-  .pg-viewer-link {
-    background: mediumpurple;
+.pg-viewer-wrapper-mp4 {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+  .pg-viewer-mp4 {
     height: 100%;
-    flex-grow: 1;
+    position: relative;
+    flex-grow: 2;
   }
+}
+
+.pg-viewer-wrapper-mp3 {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .pg-viewer-mp3 {
+    height: 100%;
+    position: relative;
+    flex-grow: 2;
+  }
+}
+
+.outer{
+  height: 100%;
+  width: 100% ;
+  position: relative;
+  overflow: hidden;
 }

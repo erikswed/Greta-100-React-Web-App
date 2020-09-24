@@ -24,12 +24,22 @@ class Masonry extends React.Component {
 		this._onScroll = this._onScroll.bind(this);
 	}
 
+	//  componentDidUpdate() {
+	// 	const { onSetMasonryHeight } = this.props;
+	// 	setTimeout(() => {
+	// 		onSetMasonryHeight(this.list.current.clientHeight);
+	// 	}, 50);
+	//   }
+
 	componentDidMount() {
 		this.setState({
 			mounted: true,
 		});
-
 		this.container.current.addEventListener('scroll', this._onScroll, false);
+		// const { onSetMasonryHeight } = this.props;
+		// setTimeout(() => {
+		// 	onSetMasonryHeight(this.list.current.clientHeight);
+		// }, 50);
 	}
 
 	UNSAFE_componentWillReceiveProps({ width }) {
