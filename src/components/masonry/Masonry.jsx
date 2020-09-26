@@ -6,7 +6,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { max, map, compact, last } from 'lodash';
 
 class Masonry extends React.Component {
-	constructor(props) {
+	constructor() {
 		super();
 		this.container = React.createRef();
 		this.list = React.createRef();
@@ -68,11 +68,12 @@ class Masonry extends React.Component {
 	 */
 	_onEnd(isVisible) {
 		if (!isVisible) return;
-		this.props.onEnd && this.props.onEnd();
+		const { onEnd } = this.props;
+		if (onEnd) onEnd();
 	}
 
 	_getContainerStyle() {
-		const { infinite, debug } = this.props;
+		const { debug } = this.props;
 
 		return {
 			outline: debug && '1px solid seagreen',

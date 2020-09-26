@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Masonry from '../masonry/Masonry';
 import ItemRenderer from '../masonry/ItemRenderer';
+
 const la = require('lodash');
 
 class TimeLineView extends React.Component {
-	constructor(props) {
+	constructor() {
 		super();
 		this.photosArr = [];
 		this.currentAlbum = 0;
@@ -21,7 +22,7 @@ class TimeLineView extends React.Component {
 		const { albumData } = this.props;
 		if (albumData.length === 0) return null;
 		const { albumIndex } = this.props;
-		// Dont render if album request does not exist in the map, albumIndex is not in the map or less then 0
+		// don't render if album request does not exist in the map, albumIndex is not in the map or less then 0
 		if (albumIndex < 1 || albumIndex == undefined) return null;
 		let items = la.find(albumData, { weekNumber: String(albumIndex) });
 		items = items.media;
@@ -78,7 +79,7 @@ class TimeLineView extends React.Component {
 				<div
 					style={{
 						width,
-						height:  "auto",
+						height: 'auto',
 						position: 'relative',
 						margin: '0 auto',
 					}}

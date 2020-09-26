@@ -7,7 +7,3 @@ export function getData() {
 export function getAlbumData() {
 	return { type: ALBUM_DATA_REQUESTED };
 }
-
-// export function getData() {
-//   return { type: GET_DATA }
-// }

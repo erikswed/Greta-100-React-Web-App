@@ -8,8 +8,8 @@ import PDFPage from './pdf-page';
 
 const INCREASE_PERCENTAGE = 0.2;
 export default class PDFDriver extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.state = {
 			pdf: null,
@@ -83,7 +83,12 @@ export default class PDFDriver extends React.Component {
 	render() {
 		return (
 			<div className="pdf-viewer-container">
-				<div className="pdf-viewer" ref={node => (this.container = node)}>
+				<div
+					className="pdf-viewer"
+					ref={node => {
+						this.container = node;
+					}}
+				>
 					<div className="pdf-controlls-container">
 						<button type="button" className="view-control" onClick={this.increaseZoom}>
 							<i className="zoom-in" />

@@ -19,10 +19,7 @@ class ShowBuildAndVersion extends React.Component {
 				{packageJson.version}
 				{' Build: '}
 				{buildTimestamp}
-				{' Date: '}
-				{'('}
-				{this.getDateString()}
-				{')'}
+				{' Date: '}({this.getDateString()})
 			</div>
 		);
 	}

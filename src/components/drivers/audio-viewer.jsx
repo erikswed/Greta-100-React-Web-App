@@ -5,8 +5,8 @@ import '../../styles/video.scss';
 import Loading from '../file-viewer/loading';
 
 class AudioViewer extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
 			loading: true,
 		};
@@ -23,7 +23,8 @@ class AudioViewer extends Component {
 		}
 		return null;
 	}
-// bottom: 0; position: fixed; right: 0;
+
+	// bottom: 0; position: fixed; right: 0;
 	render() {
 		const { loading } = this.state;
 		const visibility = loading ? 'hidden' : 'visible';

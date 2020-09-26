@@ -59,7 +59,16 @@ export default class PhotoViewerWrapper extends Component {
 			return <Loading />;
 		}
 		const PhotoDriver = getPhotoDriver(originalWidth, originalHeight, fileType);
+		const { texture, viewerWidth, viewerHeight } = this.props;
 
-		return <PhotoDriver {...this.state} {...this.props} />;
+		return (
+			<PhotoDriver
+				originalWidth={originalWidth}
+				originalHeight={originalHeight}
+				texture={texture}
+				viewerWidth={viewerWidth}
+				viewerHeight={viewerHeight}
+			/>
+		);
 	}
 }

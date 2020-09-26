@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../../styles/overlay-pdf-renderer.scss';
-class OverlayPdf extends Component {
-	constructor(props) {
+import '../../styles/overlay-mp3-renderer.scss';
+
+class OverlayMp3 extends Component {
+	constructor() {
 		super();
 		this.state = {
 			hoverIndex: null,
@@ -18,8 +19,7 @@ class OverlayPdf extends Component {
 			const { id } = e.target;
 			this.timeout = setTimeout(function Foo() {
 				// set the pointerEvents to auto so user can click buttons
-				if (document.getElementById( "pdf-box" ) != null)
-					document.getElementById( "pdf-box" ).style.pointerEvents = 'auto';
+				if (document.getElementById('mp3-box') != null) document.getElementById('mp3-box').style.pointerEvents = 'auto';
 				that.setState({ hoverIndex: id });
 			}, 500);
 		}
@@ -27,8 +27,7 @@ class OverlayPdf extends Component {
 
 	handleMouseLeave = () => {
 		clearTimeout(this.timeout);
-		if (document.getElementById( "pdf-box" ) != null)
-			document.getElementById( "pdf-box" ).style.pointerEvents = 'none';
+		if (document.getElementById('mp3-box') != null) document.getElementById('mp3-box').style.pointerEvents = 'none';
 		this.setState({ hoverIndex: null });
 	};
 
@@ -36,18 +35,17 @@ class OverlayPdf extends Component {
 		const { fileData } = this.props;
 		const { hoverIndex } = this.state;
 		return (
-			<div className={`box-container-pdf ${hoverIndex === "pdf-box" ? 'hovered-pdf' : ''}`}
-			 id={"pdf-box"} key={fileData} 	
-			 onMouseLeave={this.handleMouseLeave}
+			<div
+				className={`box-container-mp3 ${hoverIndex === 'mp3-box' ? 'hovered-mp3' : ''}`}
+				id="mp3-box"
+				key={fileData}
+				onMouseLeave={this.handleMouseLeave}
 			>
-				<div className="clickBox-pdf"
-					onMouseEnter={this.handleMouseEnter}
-					id={"pdf-box"}
-				></div>
-				<div className="box-content-pdf" onMouseLeave={this.handleMouseLeave}>
-					<div className="text-group-pdf">Pdf File</div>
+				<div className="clickBox-mp3" onMouseEnter={this.handleMouseEnter} id="mp3-box" />
+				<div className="box-content-mp3" onMouseLeave={this.handleMouseLeave}>
+					<div className="text-group-mp3">Mp3 File</div>
 
-					<div className="btn-group-pdf">
+					<div className="btn-group-mp3">
 						<button className="btn btn-secondary" type="button">
 							Open File
 						</button>
@@ -67,4 +65,4 @@ class OverlayPdf extends Component {
 	}
 }
 
-export default OverlayPdf;
+export default OverlayMp3;

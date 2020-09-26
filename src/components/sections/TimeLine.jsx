@@ -5,10 +5,11 @@ import SliderWrapper from './SliderWrapper';
 import '../../styles/time-line-carousel.css';
 
 class Timeline extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.changeHandler = this.changeHandler.bind(this);
 		this.changeSlider = this.changeSlider.bind(this);
+		this.changeUpdateCount = this.changeUpdateCount.bind(this);
 		this.state = {
 			slideIndex: 1,
 			updateCount: 0,
@@ -35,7 +36,7 @@ class Timeline extends React.Component {
 		this.setState({
 			slideIndex: this.wrapper.slider.innerSlider.state.currentSlide,
 		});
-		// when swiping the caourusel this changes the album in the TimeLineWiewe to the selected caourusel album
+		// when swiping the carrousel this changes the album in the TimeLineWiew to the selected carrousel album
 		// const { onChangeAlbum } = this.props;
 		// onChangeAlbum(this.sliderWrapper.slider.innerSlider.state.currentSlide);
 	}
@@ -55,9 +56,11 @@ class Timeline extends React.Component {
 					<input onChange={this.changeHandler} value={slideIndex} type="range" min={0} max={50} />
 					<SliderWrapper
 						onImageClick={this.onImageClick}
-						childRef={ref => (this.wrapper = ref)}
-						beforeChanged={this.changeUpdateCount.bind(this)}
-						afterChanged={this.changeSlider.bind(this)}
+						childRef={ref => {
+							this.wrapper = ref;
+						}}
+						beforeChanged={this.changeUpdateCount}
+						afterChanged={this.changeSlider}
 						slideIndex={slideIndex}
 						updateCounter={updateCount}
 					/>

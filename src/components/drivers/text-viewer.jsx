@@ -5,8 +5,8 @@ import uniqueId from 'lodash/uniqueId';
 import Loading from '../file-viewer/loading';
 
 class TextViewer extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
 			loading: true,
 		};
@@ -33,8 +33,8 @@ class TextViewer extends Component {
 export default TextViewer;
 
 export class TextFileReader extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.state = {
 			text: '',

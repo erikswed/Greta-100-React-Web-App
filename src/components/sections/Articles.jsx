@@ -1,21 +1,21 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import uniqueId from 'lodash/uniqueId';
 import Article from '../elements/Article';
-
+// TODO Template to be used
 class Articles extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = { articles: [] };
 	}
 
 	getArticles() {
-		if (this.props.articles.length === 0) return null;
-		const articles = [];
-		this.props.articles.article.map(element => {
+		const { articles } = this.props;
+		if (articles.length === 0) return null;
+		const article = [];
+		articles.article.map(element => {
 			const id = uniqueId();
-			articles.push(
+			article.push(
 				<div className="column" key={id}>
 					<Article
 						key={id}
@@ -30,9 +30,9 @@ class Articles extends Component {
 		});
 		// Hard coded for 4 columns
 		for (let i = 0; i < 0; i += 1) {
-			articles.push(<div className="column" />);
+			article.push(<div className="column" />);
 		}
-		this.state.articles = articles;
+		this.state.articles = article;
 		return null;
 	}
 

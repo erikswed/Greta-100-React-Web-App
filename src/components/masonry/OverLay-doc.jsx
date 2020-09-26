@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../../styles/overlay-xlsx-renderer.scss';
-class OverlayXlsx extends Component {
-	constructor(props) {
+import '../../styles/overlay-doc-renderer.scss';
+
+class OverlayDoc extends Component {
+	constructor() {
 		super();
 		this.state = {
 			hoverIndex: null,
@@ -18,8 +19,7 @@ class OverlayXlsx extends Component {
 			const { id } = e.target;
 			this.timeout = setTimeout(function Foo() {
 				// set the pointerEvents to auto so user can click buttons
-				if (document.getElementById( "xlsx-box" ) != null)
-					document.getElementById( "xlsx-box" ).style.pointerEvents = 'auto';
+				if (document.getElementById('doc-box') != null) document.getElementById('doc-box').style.pointerEvents = 'auto';
 				that.setState({ hoverIndex: id });
 			}, 500);
 		}
@@ -27,8 +27,7 @@ class OverlayXlsx extends Component {
 
 	handleMouseLeave = () => {
 		clearTimeout(this.timeout);
-		if (document.getElementById( "xlsx-box" ) != null)
-			document.getElementById( "xlsx-box" ).style.pointerEvents = 'none';
+		if (document.getElementById('doc-box') != null) document.getElementById('doc-box').style.pointerEvents = 'none';
 		this.setState({ hoverIndex: null });
 	};
 
@@ -36,18 +35,17 @@ class OverlayXlsx extends Component {
 		const { fileData } = this.props;
 		const { hoverIndex } = this.state;
 		return (
-			<div className={`box-container-xlsx ${hoverIndex === "xlsx-box" ? 'hovered-xlsx' : ''}`}
-			 id={"xlsx-box"} key={fileData} 	
-			 onMouseLeave={this.handleMouseLeave}
+			<div
+				className={`box-container-doc ${hoverIndex === 'doc-box' ? 'hovered-doc' : ''}`}
+				id="doc-box"
+				key={fileData}
+				onMouseLeave={this.handleMouseLeave}
 			>
-				<div className="clickBox-xlsx"
-					onMouseEnter={this.handleMouseEnter}
-					id={"xlsx-box"}
-				></div>
-				<div className="box-content-xlsx" onMouseLeave={this.handleMouseLeave}>
-					<div className="text-group-xlsx">Spreadsheet  File</div>
+				<div className="clickBox-doc" onMouseEnter={this.handleMouseEnter} id="doc-box" />
+				<div className="box-content-doc" onMouseLeave={this.handleMouseLeave}>
+					<div className="text-group-doc">Doc File</div>
 
-					<div className="btn-group-xlsx">
+					<div className="btn-group-doc">
 						<button className="btn btn-secondary" type="button">
 							Open File
 						</button>
@@ -67,4 +65,4 @@ class OverlayXlsx extends Component {
 	}
 }
 
-export default OverlayXlsx;
+export default OverlayDoc;

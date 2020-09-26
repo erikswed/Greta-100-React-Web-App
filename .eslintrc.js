@@ -1,7 +1,6 @@
 module.exports = {
 	env: {
 		browser: true,
-		es2021: true,
 	},
 	extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
 	parser: '@typescript-eslint/parser',
@@ -15,7 +14,6 @@ module.exports = {
 	plugins: ['react', '@typescript-eslint', 'prettier'],
 	rules: {
 		'prettier/prettier': 'error',
-		'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
 		'react/forbid-prop-types': [0, { forbid: ['any'] }],
 		'react/prop-types': 0,
 		'no-tabs': 0,

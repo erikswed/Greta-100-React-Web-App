@@ -1,13 +1,12 @@
 // Original work Copyright (c) 2017 PlanGrid, Inc.
-// Modified work Copyright 2020, Trussworks, Inc.
 
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import '../../styles/photo360.scss';
 
 class Photo360Viewer extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		let savedX;
 		let savedY;
 		let savedLongitude;

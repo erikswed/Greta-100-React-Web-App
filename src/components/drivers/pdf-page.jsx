@@ -7,8 +7,8 @@ PDFJS.disableWorker = true;
 const DEFAULT_SCALE = 1.1;
 
 export default class PDFPage extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {};
 		this.onChange = this.onChange.bind(this);
 	}
@@ -64,10 +64,22 @@ export default class PDFPage extends React.Component {
 		return (
 			<div key={`page-${index}`} className="pdf-canvas">
 				{disableVisibilityCheck ? (
-					<canvas ref={node => (this.canvas = node)} width="670" height="870" />
+					<canvas
+						ref={node => {
+							this.canvas = node;
+						}}
+						width="670"
+						height="870"
+					/>
 				) : (
 					<VisibilitySensor onChange={this.onChange} partialVisibility>
-						<canvas ref={node => (this.canvas = node)} width="670" height="870" />
+						<canvas
+							ref={node => {
+								this.canvas = node;
+							}}
+							width="670"
+							height="870"
+						/>
 					</VisibilitySensor>
 				)}
 			</div>

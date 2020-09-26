@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../../styles/overlay-mp4-renderer.scss';
+
 class OverlayMp4 extends Component {
-	constructor(props) {
+	constructor() {
 		super();
 		this.state = {
 			hoverIndex: null,
@@ -18,8 +19,7 @@ class OverlayMp4 extends Component {
 			const { id } = e.target;
 			this.timeout = setTimeout(function Foo() {
 				// set the pointerEvents to auto so user can click buttons
-				if (document.getElementById( "mp4-box" ) != null)
-					document.getElementById( "mp4-box" ).style.pointerEvents = 'auto';
+				if (document.getElementById('mp4-box') != null) document.getElementById('mp4-box').style.pointerEvents = 'auto';
 				that.setState({ hoverIndex: id });
 			}, 500);
 		}
@@ -27,8 +27,7 @@ class OverlayMp4 extends Component {
 
 	handleMouseLeave = () => {
 		clearTimeout(this.timeout);
-		if (document.getElementById( "mp4-box" ) != null)
-			document.getElementById( "mp4-box" ).style.pointerEvents = 'none';
+		if (document.getElementById('mp4-box') != null) document.getElementById('mp4-box').style.pointerEvents = 'none';
 		this.setState({ hoverIndex: null });
 	};
 
@@ -36,14 +35,13 @@ class OverlayMp4 extends Component {
 		const { fileData } = this.props;
 		const { hoverIndex } = this.state;
 		return (
-			<div className={`box-container-mp4 ${hoverIndex === "mp4-box" ? 'hovered-mp4' : ''}`}
-			 id={"mp4-box"} key={fileData} 	
-			 onMouseLeave={this.handleMouseLeave}
+			<div
+				className={`box-container-mp4 ${hoverIndex === 'mp4-box' ? 'hovered-mp4' : ''}`}
+				id="mp4-box"
+				key={fileData}
+				onMouseLeave={this.handleMouseLeave}
 			>
-				<div className="clickBox-mp4"
-					onMouseEnter={this.handleMouseEnter}
-					id={"mp4-box"}
-				></div>
+				<div className="clickBox-mp4" onMouseEnter={this.handleMouseEnter} id="mp4-box" />
 				<div className="box-content-mp4" onMouseLeave={this.handleMouseLeave}>
 					<div className="text-group-mp4">Mp4 File</div>
 

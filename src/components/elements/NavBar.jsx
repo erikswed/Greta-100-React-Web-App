@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import MenuItem from './MenuItem';
 
 class NavBar extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = { showMenu: false };
 		this.handleMenuClick = this.handleMenuClick.bind(this);
 	}
