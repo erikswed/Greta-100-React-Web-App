@@ -202,7 +202,7 @@ Albums meta data json
     ]
   },
 ```
-# Current version:  1.0.8
+# Current version:  1.0.9
 
 ## Change log
 
