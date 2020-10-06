@@ -206,6 +206,10 @@ Albums meta data json
 
 ## Change log
 
+##### App Version: 1.0.9 Build: 1602012032253 Date: (06.10.2020 21:20:32)
+CHANGES:
+- Added React-Bootstrap Navbar addition
+
 ##### App Version: 1.0.8 Build: 1600892449056 Date: (23.09.2020 22:20:49)
 CHANGES:
 - Added feature-add-items-overlay-with-options-like-download-open-change-description
