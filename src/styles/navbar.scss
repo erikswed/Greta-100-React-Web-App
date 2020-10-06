@@ -1,0 +1,264 @@
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  // NAVBAR
+  .navbar-dark .navbar-toggler-icon {
+    height: 34px;
+    width: 20px;
+  }
+
+  .navbar {
+    transition: top 0.6s;
+    opacity: 0.95;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+  }
+
+  .navbar--hidden {
+    top: -150px;
+  }
+
+  .btn-huge {
+    padding-top: 11px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 11px;
+    font-size: 0.7rem;
+    margin: 3px;
+    visibility: hidden;
+
+  }
+
+  .logo {
+    content: url("../assets/The first 100 weeks in pictures and more7.png");
+    height: auto;
+    width: 70%;
+  }
+
+  .navbar-brand {
+    max-width: 90%;
+  }
+
+  .form-inline {
+    width: 100%;
+    margin-left: 100px;
+  }
+
+  .form-control {
+    width: 5% !important;
+    visibility: hidden;
+  }
+
+  .toggle-button {
+    margin-right: 20px;
+    margin-left: 30px;
+    
+  }
+}
+
+// Small devices (landscape phones, 576px to 767.98px)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  // NAVBAR
+  .navbar-dark .navbar-toggler-icon {
+    height: 34px;
+    width: 20px;
+  }
+
+  .navbar {
+    transition: top 0.6s;
+    opacity: 0.95;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+  }
+
+  .navbar--hidden {
+    top: -150px;
+  }
+
+  .btn-huge {
+    padding-top: 11px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 11px;
+    font-size: 0.7rem;
+    margin: 3px;
+  }
+
+  .logo {
+    content: url("../assets/The first 100 weeks in pictures and more7.png");
+    height: auto;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    max-width: 37%;
+  }
+
+  .form-inline {
+    width: 100%;
+    margin-left: 100px;
+  }
+
+  .form-control {
+    width: 5% !important;
+    visibility: hidden;
+  }
+
+  .toggle-button {
+    margin-right: 20px;
+    margin-left: 30px;
+  }
+}
+
+// Medium devices (tablets, 768px to 991.98px)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  // NAVBAR
+  .navbar-dark .navbar-toggler-icon {
+    height: 34px;
+    width: 20px;
+  }
+
+  .navbar {
+    transition: top 0.6s;
+    opacity: 0.95;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+  }
+
+  .navbar--hidden {
+    top: -150px;
+  }
+
+  .btn-huge {
+    padding-top: 11px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 11px;
+    font-size: 0.7rem;
+    margin: 3px;
+  }
+
+  .logo {
+    content: url("../assets/The first 100 weeks in pictures and more7.png");
+    height: auto;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    max-width: 27%;
+  }
+
+  .form-inline {
+    width: 100%;
+    margin-left: 100px;
+  }
+
+  .form-control {
+    width: 100% !important;
+  }
+
+  .toggle-button {
+    margin-right: 20px;
+    margin-left: 30px;
+  }
+}
+
+// Large devices (desktops, 992px to 1199.98px)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  // NAVBAR
+  .navbar-dark .navbar-toggler-icon {
+    height: 44px;
+    width: 44px;
+  }
+
+  .navbar {
+    transition: top 0.6s;
+    opacity: 0.95;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+  }
+
+  .navbar--hidden {
+    top: -150px;
+  }
+
+  .btn-huge {
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+    font-size: 0.8rem;
+    margin: 3px;
+  }
+
+  .logo {
+    content: url("../assets/The first 100 weeks in pictures and more7.png");
+    height: auto;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    max-width: 37%;
+  }
+
+  .form-inline {
+    width: 100%;
+    margin-left: 100px;
+  }
+
+  .form-control {
+    width: 100% !important;
+  }
+
+  .toggle-button {
+    margin-right: 20px;
+    margin-left: 30px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px to 5000px)
+@media (min-width: 1200px) and (max-width: 5000px) {
+  // NAVBAR
+  .navbar-dark .navbar-toggler-icon {
+    height: 44px;
+    width: 44px;
+  }
+
+  .navbar {
+    transition: top 0.6s;
+    opacity: 0.95;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+  }
+
+  .navbar--hidden {
+    top: -150px;
+  }
+
+  .btn-huge {
+    padding-top: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 15px;
+    font-size: 0.9rem;
+    margin: 4px;
+  }
+
+  .logo {
+    content: url("../assets/The first 100 weeks in pictures and more7.png");
+    height: auto;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    max-width: 37%;
+  }
+
+  .form-inline {
+    width: 100%;
+    margin-left: 100px;
+  }
+
+  .form-control {
+    width: 100% !important;
+  }
+
+  .toggle-button {
+    margin-right: 20px;
+    margin-left: 30px;
+  }
+}

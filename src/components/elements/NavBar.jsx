@@ -1,13 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MenuItem from './MenuItem';
+import { Navbar, Nav, Form, FormControl, Button, Container, Col } from 'react-bootstrap';
+import '../../styles/navbar.scss';
 
 class NavBar extends React.Component {
 	constructor() {
 		super();
-		this.state = { showMenu: false };
+		this.state = { showMenu: false, height: 0, width: 0 };
 		this.handleMenuClick = this.handleMenuClick.bind(this);
+		this.window = React.createRef();
+		window.addEventListener('resize', this.update);
 	}
+
+	componentDidMount() {
+		this.update();
+	}
+
+	update = () => {
+		this.setState({
+			height: window.innerHeight,
+			width: window.innerWidth,
+		});
+	};
 
 	handleMenuClick() {
 		const { showMenu } = this.state;
@@ -15,30 +29,39 @@ class NavBar extends React.Component {
 	}
 
 	render() {
-		const { showMenu } = this.props;
-		const { articles } = this.props;
+		const { toggle } = this.props;
+		const { visible } = this.props;
 		return (
-			<nav className="navbar is-transparent">
-				<div className="container">
-					<div className="navbar-brand">
-						<a href="/" className="navbar-item title is-unselectable my-name">
-							{articles.basics.name}
-						</a>
-						<span className="navbar-burger burger" onClick={this.handleMenuClick}>
-							<span />
-							<span />
-							<span />
-						</span>
-					</div>
-					<div className={`navbar-menu nav-menu ${showMenu ? 'is-active' : null}`}>
-						<div className="navbar-end" onClick={this.handleMenuClick}>
-							<MenuItem text="About Greta" href="#aboutMe" />
-							<MenuItem text="TimeLine" href="#timeline" />
-							<MenuItem text="Articles" href="#articles" />
-						</div>
-					</div>
-				</div>
-			</nav>
+			<div>
+				<>
+					<Navbar
+						expand="false"
+						bg="dark"
+						variant="dark"
+						fixed="top"
+						collapseOnSelect
+						className={`navbar ${!visible ? 'navbar--hidden' : ''} d-flex justify-content-between align-items-center`}
+					>
+
+						<Form inline className="flex-nowrap">
+							<Navbar.Brand href="#home" className="img-container">
+								<img alt="" className="logo" />
+							</Navbar.Brand>
+							<FormControl type="text" placeholder="Search Title, Events or Dates" className="mr-sm-2" />
+							<Button variant="primary" size="huge" href="#articles">
+								Articles
+							</Button>
+							<Button variant="primary" size="huge" href="#timeline">
+								Timeline
+							</Button>
+							<Button variant="primary" size="huge" href="#aboutMe">
+								About
+							</Button>
+							<Navbar.Toggle className="toggle-button" aria-controls="responsive-navbar-nav" onClick={toggle} />
+						</Form>
+					</Navbar>
+				</>{' '}
+			</div>
 		);
 	}
 }

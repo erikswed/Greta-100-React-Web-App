@@ -1,16 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import uniqueId from 'lodash/uniqueId';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import ShowBuildAndVersion from './ShowBuildAndVersion';
+import SlideDrawer from '../side-drawer/SideDrawer';
 
 function Hero({ articles }) {
+	const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+	const [yOffset, setYOffset] = useState(window.pageYOffset);
+	const [visible, setVisible] = useState(true);
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
+
+	function handleScroll() {
+		const currentYOffset = window.pageYOffset;
+		const isVisible = yOffset > currentYOffset;
+
+		setYOffset(currentYOffset);
+		setVisible(isVisible);
+	}
+
+	const drawerToggleClickHandler = () => {
+		setDrawerIsOpen(!drawerIsOpen);
+	};
+
+	const backdropClickHandler = () => {
+		setDrawerIsOpen(false);
+	};
+
 	if (typeof articles === 'undefined') return null;
 	if (articles.length === 0) return null;
 	return (
 		<section className="hero is-dark is-fullheight has-bg-image">
 			<div className="hero-head">
-				<NavBar />
+				<NavBar toggle={drawerToggleClickHandler} visible={visible} />
+				<SlideDrawer show={drawerIsOpen} close={backdropClickHandler} />
 			</div>
 			<div className="hero-body">
 				<div className="container">
