@@ -41,17 +41,42 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 ##### ***THIS ABOVE LIST IS IN A DRAFT STATE..****
 
 ## Design
-A one page website with menus only for mobiles.
+A one page website easy access.
 
 ##  Development
-This is a ReactJs project.    
+This is a ReactJs project using Create React App and no need to eject as of today.    
 Considering the requirements and on-going iteration discussions, feel free to contribute with Pull requests. 
 
+## TODO:
++ The Menu header Toggle Button open a link page and all links need setup help.
++ Mobile screen layout is needed for: 
+   + Top Menu layout below some 500px width need help:
+      + on mobile a hamburger toggler is enough and some Header logo maybe
+   + In the Masonry the overlay for all items Docs, Tex's are not for mobile and need help
++ Proposal for a Top Menu search feature like autocomplete search to start with then expand it to [look something like this](https://codesandbox.io/s/react-tutorial-search-button-forked-q05kq?file=/main/Main.js)
++ The structure for how albums "weeks" all the way to individual files images, movies and docs are going to be handled. Specifically that an "item" can have this metadata: 
+   + Overall description text
+   + "fileData": "someImage.jpeg",
+   + "ratio": "0.7497371188222923", (all items not only images must have a ratio so Masonry can lay them out)
+   + "title": "Some title text",
+   + "description": "some description text",
+   + "size": "115603",
+   + "mediaType": "jpeg",
+   + "mimeType": "image/jpeg"
+   + Tag text
+   + coming more....
+   
+   and that this metadata can be changed by end user. Basically different flows can be: 
+   + User add an album containing images, movies and docs and every "item" must have the above 
+   metadata. 
+   + User search for images, movies and docs and then the metadata is used by user to filter result.
+   + User add to an album a single images, movie or doc and by so must add the above metadata.
 #### How it works: 
 
-The app metadata is loaded from a json at ´public/resume.json´. By using an external json it becomes flexible since the app state can be changed without building the app again. The json data can easily be inserted on a remote backen later on running some flavor of NOSQL.
+The app metadata is currently loaded from a json at ´public/resume.json´. By using an external json it becomes flexible since the app state can be changed without building the app again. The json data can when time comes easily be inserted on a remote backend later on running some flavor of NOSQL.
 
-This is the main json down below you see the json for albums
+This is the main Overall json down below you see the json dedicated only for albums
+This is up till now a [resume](https://jsonresume.org/) type of layout json because it was a handy starter but we will outgrow that. 
 ```json
 {
   "basics": {
@@ -130,34 +155,40 @@ Albums meta data json
         "id": "week-1-1",
         "key": "1",
         "week": "1",
-        "fileData": "0_sJ1A5jGwSm66KCdV.png",
-        "ratio": "0.7482859941234085",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "1591511"
-      },
-      {
-        "id": "week-1-2",
-        "key": "2",
-        "week": "1",
         "fileData": "4olpqsvfte5rubn47j936z7c5vn9lff.jpeg",
         "ratio": "0.6677181913774973",
         "background": "rgb(56, 230, 236)",
         "title": "dhdasdada",
         "description": "jkhkjhl",
-        "size": "84427"
+        "size": "84427",
+        "mediaType": "jpeg",
+        "mimeType": "image/jpeg"
       },
       {
-        "id": "week-1-3",
-        "key": "3",
+        "id": "week-1-2",
+        "key": "2",
         "week": "1",
         "fileData": "9tlnx2sudu05jqxwij2evyvaifkrvbc.jpeg",
         "ratio": "0.7497371188222923",
         "background": "rgb(56, 230, 236)",
         "title": "dhdasdada",
         "description": "jkhkjhl",
-        "size": "115603"
+        "size": "115603",
+        "mediaType": "jpeg",
+        "mimeType": "image/jpeg"
+      },
+      {
+        "id": "week-1-3",
+        "key": "3",
+        "week": "1",
+        "fileData": "Greta Thunberg \u0026 FatBoy Slim - Right Here, Right Now (Full Extended).mp3",
+        "ratio": "1.41428571429",
+        "background": "rgb(56, 230, 236)",
+        "title": "dhdasdada",
+        "description": "jkhkjhl",
+        "size": "18005908",
+        "mediaType": "mp3",
+        "mimeType": "audio/mpeg"
       },
      ]
   },
@@ -166,38 +197,45 @@ Albums meta data json
     "weekNumber": "2",
     "coverImage": "coverImage.jpg",
     "media": [
-      {
-        "id": "week-2-1",
+     {
+        "id": "week-1-1",
         "key": "1",
         "week": "2",
-        "fileData": "1.jpg",
-        "ratio": "1.3333333333333333",
+        "fileData": "Greta-Thunbergs-first-speech-at-Saturday-September-8-2018.mp4",
+        "ratio": "1.41428571429",
         "background": "rgb(56, 230, 236)",
         "title": "dhdasdada",
         "description": "jkhkjhl",
-        "size": "935670"
+        "size": "10372097",
+        "mediaType": "mp4",
+        "mimeType": "video/mp4",
+        "duration": "139111"
       },
       {
-        "id": "week-2-2",
+        "id": "week-1-2",
         "key": "2",
         "week": "2",
-        "fileData": "1_vtY9uCjeKSa1jIXm504jlg.jpeg.jpg",
-        "ratio": "0.75",
+        "fileData": "h14-greta-thunberg-eu-leaders-climate-change.jpg",
+        "ratio": "0.5625",
         "background": "rgb(56, 230, 236)",
         "title": "dhdasdada",
         "description": "jkhkjhl",
-        "size": "2943656"
+        "size": "56767",
+        "mediaType": "jpg",
+        "mimeType": "image/jpeg"
       },
       {
-        "id": "week-2-3",
+        "id": "week-1-3",
         "key": "3",
-        "week": "2",
-        "fileData": "2.jpg",
-        "ratio": "0.75",
+        "week": "3",
+        "fileData": "LICENSE.txt",
+        "ratio": "1.41428571429",
         "background": "rgb(56, 230, 236)",
         "title": "dhdasdada",
         "description": "jkhkjhl",
-        "size": "505009"
+        "size": "11562",
+        "mediaType": "txt",
+        "mimeType": "text/plain"
       },
     ]
   },
@@ -243,7 +281,7 @@ Changes:
 
 - [ ] Backend server 
 - [ ] Add support for all types of files in an album
-- [ ] 
+- [ ] Get sponsors 
 - [ ] 
 
 ## Build
