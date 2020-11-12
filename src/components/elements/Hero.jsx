@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import ShowBuildAndVersion from './ShowBuildAndVersion';
 import SlideDrawer from '../side-drawer/SideDrawer';
+import { selectAlbumMetaSlice } from '../../redux/albumMetaData/albumMetaData.selectors';
 
-function Hero({ articles }) {
+function Hero({ albumMeta }) {
 	const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 	const [yOffset, setYOffset] = useState(window.pageYOffset);
 	const [visible, setVisible] = useState(true);
@@ -31,8 +32,8 @@ function Hero({ articles }) {
 		setDrawerIsOpen(false);
 	};
 
-	if (typeof articles === 'undefined') return null;
-	if (articles.length === 0) return null;
+	if (typeof albumMeta === 'undefined') return null;
+	if (albumMeta.length === 0) return null;
 	return (
 		<section className="hero is-dark is-fullheight has-bg-image">
 			<div className="hero-head">
@@ -42,22 +43,22 @@ function Hero({ articles }) {
 			<div className="hero-body">
 				<div className="container">
 					<p className="subtitle is-5 has-text-weight-light">I'm a</p>
-					<h1 className="title">{articles.basics.label}</h1>
+					<h1 className="title">{albumMeta.basics.label}</h1>
 					<h2 className="subtitle">
-						{articles.basics.location.region}, {articles.basics.location.country}
+						{albumMeta.basics.location.region}, {albumMeta.basics.location.country}
 					</h2>
 					<div>
-						<p className="subtitle is-5 has-text-weight-light">{articles.basics.description}</p>
+						<p className="subtitle is-5 has-text-weight-light">{albumMeta.basics.description}</p>
 					</div>
-					<div className="navbar-item  is-6   is-unselectable">{articles.basics.fansite}</div>
-					<div className="navbar-item  is-6   is-unselectable">{articles.basics.fansiteDev}</div>
+					<div className="navbar-item  is-6   is-unselectable">{albumMeta.basics.fansite}</div>
+					<div className="navbar-item  is-6   is-unselectable">{albumMeta.basics.fansiteDev}</div>
 				</div>
 			</div>
 
 			<div className="hero-foot" style={{ paddingBottom: '20px' }}>
 				<div className="columns is-mobile">
 					<div className="column" />
-					{articles.basics.profiles.map(value => {
+					{albumMeta.basics.profiles.map(value => {
 						return (
 							<div key={uniqueId()} className="column has-text-centered">
 								<a href={value.url} target="blank" className="is-hovered" title={value.network}>
@@ -85,7 +86,7 @@ function Hero({ articles }) {
 }
 
 const mapStateToProps = state => {
-	return { articles: state.rootReducer.remoteArticles };
+	return { albumMeta: selectAlbumMetaSlice(state) };
 };
 
 const Aaa = connect(mapStateToProps, null)(Hero);

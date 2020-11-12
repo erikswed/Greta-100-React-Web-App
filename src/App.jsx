@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getData, getAlbumData } from './actions/index';
+import { compose } from 'recompose';
+import { getAlbumData } from './redux/albumData/albumData.actions';
+import { getMetaData } from './redux/albumMetaData/albumMetaData.actions';
+
 import Header from './components/structure/Header';
 import Content from './components/structure/Content';
 import Footer from './components/structure/Footer';
+import { withAuthentication } from './session';
+import './styles/index.css';
 
 class App extends Component {
 	componentDidMount() {
-		document.title = [
-			'Resume.basics.name',
-			'Resume.basics.label',
-			['Resume.basics.location.region', 'Resume.basics.location.country'].join(', '),
-		].join(' | ');
-		const { getDataPosts, getAlbum } = this.props;
-		getDataPosts();
+		const { getMeta, getAlbum } = this.props;
+		getMeta();
 		getAlbum();
 	}
 
@@ -28,8 +28,8 @@ class App extends Component {
 	}
 }
 const mapDispatchToProps = dispatch => ({
-	getDataPosts: () => dispatch(getData()),
+	getMeta: () => dispatch(getMetaData()),
 	getAlbum: () => dispatch(getAlbumData()),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default compose(connect(null, mapDispatchToProps), withAuthentication)(App);

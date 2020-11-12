@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Masonry from '../masonry/Masonry';
 import ItemRenderer from '../masonry/ItemRenderer';
+import { selectAlbumSlice } from '../../redux/albumData/albumData.selectors';
 
 const la = require('lodash');
 
@@ -19,12 +20,12 @@ class TimeLineView extends React.Component {
 	}
 
 	render() {
-		const { albumData } = this.props;
-		if (albumData.length === 0) return null;
+		const { album } = this.props;
+		if (album.length === 0) return null;
 		const { albumIndex } = this.props;
 		// don't render if album request does not exist in the map, albumIndex is not in the map or less then 0
 		if (albumIndex < 1 || albumIndex == undefined) return null;
-		let items = la.find(albumData, { weekNumber: String(albumIndex) });
+		let items = la.find(album, { weekNumber: String(albumIndex) });
 		items = items.media;
 		this.currentAlbum = albumIndex;
 		const { width, gutter, outerGutter, debug } = this.state;
@@ -120,7 +121,7 @@ class TimeLineView extends React.Component {
 	}
 }
 const mapStateToProps = state => {
-	return { albumData: state.rootReducer.remoteAlbumData };
+	return { album: selectAlbumSlice(state) };
 };
 
 const TimeLineViewer = connect(mapStateToProps, null)(TimeLineView);

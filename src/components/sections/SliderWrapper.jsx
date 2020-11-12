@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React from 'react';
+import { selectAlbumSlice } from '../../redux/albumData/albumData.selectors';
+import { selectAlbumMetaSlice } from '../../redux/albumMetaData/albumMetaData.selectors';
 
 const la = require('lodash');
 
@@ -19,12 +21,12 @@ class Wrapper extends React.Component {
 	}
 
 	sliders() {
-		const { articles } = this.props;
-		const { albumData } = this.props;
-		if (albumData.length === 0) return null;
-		if (articles.length === 0) return null;
-		return articles.weeks.map(week => {
-			let photo = la.find(albumData, { weekNumber: week.weekNumber });
+		const { albumMeta } = this.props;
+		const { album } = this.props;
+		if (album.length === 0) return null;
+		if (albumMeta.length === 0) return null;
+		return albumMeta.weeks.map(week => {
+			let photo = la.find(album, { weekNumber: week.weekNumber });
 			photo = encodeURI(`${process.env.PUBLIC_URL}/images/weeks/${week.weekNumber}/${photo.coverImage}`);
 			const { onImageClick } = this.props;
 			return (
@@ -111,7 +113,7 @@ class Wrapper extends React.Component {
 }
 
 const mapStateToProps = state => {
-	return { articles: state.rootReducer.remoteArticles, albumData: state.rootReducer.remoteAlbumData };
+	return { albumMeta: selectAlbumMetaSlice(state), album: selectAlbumSlice(state) };
 };
 
 const SliderWrapper = connect(mapStateToProps, null)(Wrapper);

@@ -4,7 +4,7 @@ import React from 'react';
 import SliderWrapper from './SliderWrapper';
 import '../../styles/time-line-carousel.css';
 
-class Timeline extends React.Component {
+class Timeline extends React.PureComponent {
 	constructor() {
 		super();
 		this.changeHandler = this.changeHandler.bind(this);
@@ -21,24 +21,19 @@ class Timeline extends React.Component {
 		onChangeAlbum(val);
 	};
 
-	onChangeUpdateCount() {
-		this.changeUpdateCount.bind(this);
-	}
+	// onChangeUpdateCount() {
+	// 	this.changeUpdateCount.bind(this);
+	// }
 
 	changeUpdateCount() {
 		const { updateCount } = this.state;
-		this.setState({
-			updateCount: updateCount + 1,
-		});
+		this.state.updateCount = updateCount + 1;
 	}
 
 	changeSlider() {
 		this.setState({
 			slideIndex: this.wrapper.slider.innerSlider.state.currentSlide,
 		});
-		// when swiping the carrousel this changes the album in the TimeLineWiew to the selected carrousel album
-		// const { onChangeAlbum } = this.props;
-		// onChangeAlbum(this.sliderWrapper.slider.innerSlider.state.currentSlide);
 	}
 
 	changeHandler(e) {
@@ -47,7 +42,6 @@ class Timeline extends React.Component {
 
 	render() {
 		const { slideIndex } = this.state;
-		const { updateCount } = this.state;
 
 		return (
 			<section className="hero is-dark  has-bg-image">
@@ -62,7 +56,6 @@ class Timeline extends React.Component {
 						beforeChanged={this.changeUpdateCount}
 						afterChanged={this.changeSlider}
 						slideIndex={slideIndex}
-						updateCounter={updateCount}
 					/>
 				</div>
 			</section>
