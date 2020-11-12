@@ -1,7 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Navbar, Nav, Form, FormControl, Button, Container, Col } from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import '../../styles/navbar.scss';
+import { Offline } from 'react-detect-offline';
+import { AuthUserContext } from '../../session';
+import LoadingButton from '../profile/LoadingButton';
+import SignedInButton from '../profile/SignedInButton';
 
 class NavBar extends React.Component {
 	constructor() {
@@ -42,7 +45,19 @@ class NavBar extends React.Component {
 						collapseOnSelect
 						className={`navbar ${!visible ? 'navbar--hidden' : ''} d-flex justify-content-between align-items-center`}
 					>
-
+						<Offline>
+							<div
+								style={{
+									position: 'absolute',
+									left: '50%',
+									top: '10%',
+									transform: 'translate(-50%, -50%)',
+									color: 'red',
+								}}
+							>
+								It appears you don't have an active Internet connection!
+							</div>
+						</Offline>
 						<Form inline className="flex-nowrap">
 							<Navbar.Brand href="#home" className="img-container">
 								<img alt="" className="logo" />
@@ -57,6 +72,10 @@ class NavBar extends React.Component {
 							<Button variant="primary" size="huge" href="#aboutMe">
 								About
 							</Button>
+							&nbsp;&nbsp;&nbsp;
+							<AuthUserContext.Consumer>
+								{authUser => (authUser ? <SignedInButton /> : <LoadingButton />)}
+							</AuthUserContext.Consumer>
 							<Navbar.Toggle className="toggle-button" aria-controls="responsive-navbar-nav" onClick={toggle} />
 						</Form>
 					</Navbar>
@@ -66,9 +85,4 @@ class NavBar extends React.Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return { articles: state.rootReducer.remoteArticles };
-};
-
-const Aaa = connect(mapStateToProps, null)(NavBar);
-export default Aaa;
+export default NavBar;

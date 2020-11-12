@@ -82,7 +82,6 @@ class Masonry extends React.Component {
 		};
 	}
 
-	// eslint-disable-next-line class-methods-use-this
 	_getListStyle() {
 		return {
 			padding: 0,

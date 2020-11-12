@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import uniqueId from 'lodash/uniqueId';
 import Article from '../elements/Article';
+import { selectAlbumMetaSlice } from '../../redux/albumMetaData/albumMetaData.selectors';
+
 // TODO Template to be used
 class Articles extends Component {
 	constructor() {
@@ -10,10 +12,10 @@ class Articles extends Component {
 	}
 
 	getArticles() {
-		const { articles } = this.props;
-		if (articles.length === 0) return null;
+		const { albumMeta } = this.props;
+		if (albumMeta.length === 0) return null;
 		const article = [];
-		articles.article.map(element => {
+		albumMeta.article.map(element => {
 			const id = uniqueId();
 			article.push(
 				<div className="column" key={id}>
@@ -52,7 +54,7 @@ class Articles extends Component {
 }
 
 const mapStateToProps = state => {
-	return { articles: state.rootReducer.remoteArticles };
+	return { albumMeta: selectAlbumMetaSlice(state) };
 };
 
 const Aaa = connect(mapStateToProps, null)(Articles);

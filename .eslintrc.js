@@ -21,5 +21,6 @@ module.exports = {
 		indent: 0,
 		'react/jsx-indent-props': 0,
 		'no-use-before-define': [0],
+		'no-console': 'off',
 	},
 };
