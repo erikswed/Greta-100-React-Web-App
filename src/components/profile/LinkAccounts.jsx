@@ -55,6 +55,7 @@ class LoginManagementBase extends Component {
 			.then(this.fetchSignInMethods)
 			.catch(error => {
 				if (error.code === 'auth/credential-already-in-use') {
+					const anonUser = firebase.auth.currentUser;
 					firebase.auth
 						.signInWithCredential(error.credential)
 						.then(res => {
@@ -64,6 +65,16 @@ class LoginManagementBase extends Component {
 								firebase.doLogEvent(`signInWithCredential to Firestore for: ${res.credential.providerId}`);
 							}
 							changeUserRole();
+							// remove the anonUser TODO implications?
+							anonUser
+								.delete()
+								.then(() => {
+									firebase.doLogEvent(`Deleted anonUser when signing in`);
+								})
+								.catch(err => {
+									firebase.doLogEvent(`Error deleted anonUser when signing in: ${err}`);
+									firebase.doLogEvent(`Manually remove anon account: ${anonUser.uid}`);
+								});
 						})
 						.catch(err => {
 							this.setState(err.message);
