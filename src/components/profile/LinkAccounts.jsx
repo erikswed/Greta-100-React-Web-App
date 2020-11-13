@@ -42,14 +42,36 @@ class LoginManagementBase extends Component {
 		const { firebase, changeUserRole } = this.props;
 		firebase.auth.currentUser
 			.linkWithPopup(firebase[provider])
-			// .linkWithRedirect(this.props.firebase[provider])
 			.then(res => {
 				if (res.credential) {
+					if (res.user.email) {
+						firebase.doLogEvent(`linkWithPopup to Firestore for: ${res.user.email}`);
+					} else {
+						firebase.doLogEvent(`linkWithPopup to Firestore for: ${res.credential.providerId}`);
+					}
 					changeUserRole();
 				}
 			})
 			.then(this.fetchSignInMethods)
-			.catch(error => this.setState({ error }));
+			.catch(error => {
+				if (error.code === 'auth/credential-already-in-use') {
+					firebase.auth
+						.signInWithCredential(error.credential)
+						.then(res => {
+							if (res.user.email) {
+								firebase.doLogEvent(`signInWithCredential to Firestore for: ${res.user.email}`);
+							} else {
+								firebase.doLogEvent(`signInWithCredential to Firestore for: ${res.credential.providerId}`);
+							}
+							changeUserRole();
+						})
+						.catch(err => {
+							this.setState(err.message);
+						});
+				} else {
+					this.setState({ error });
+				}
+			});
 	};
 
 	onDefaultLoginLink = password => {
@@ -72,8 +94,7 @@ class LoginManagementBase extends Component {
 
 	render() {
 		const { activeSignInMethods, error } = this.state;
-		const { saveRolesErr, isSavingRole } = this.props;
-		// if (isSavingRole) return null;
+		const { saveRolesErr } = this.props;
 		return (
 			<div className="provideToggler">
 				&nbsp;&nbsp;&nbsp;
@@ -89,7 +110,6 @@ class LoginManagementBase extends Component {
 							<li key={signInMethod.id}>
 								{signInMethod.id === 'password' ? (
 									<DefaultLoginToggle
-										// accountEmail={this.props.authUser.email}
 										onlyOneLeft={onlyOneLeft}
 										isEnabled={isEnabled}
 										signInMethod={signInMethod}

@@ -8,9 +8,8 @@ import { changeDisplayName } from '../../redux/userData/user.actions';
 class ChangeName extends React.Component {
 	constructor(props) {
 		super(props);
-		const { authUser } = this.props;
 		this.state = {
-			displayName: authUser.displayName ?? '',
+			displayName: '',
 		};
 	}
 
@@ -30,8 +29,10 @@ class ChangeName extends React.Component {
 	}
 
 	render() {
-		const { displayName } = this.state;
+		let { displayName } = this.state;
 		const { authUser, savingDisplayName, newDisplayName, changeDisplayNameErr } = this.props;
+		// initiate displayName
+		displayName = displayName === '' ? authUser.displayName : displayName;
 		const isInvalid = !displayName || !displayName.trim() || displayName.trim().length > 20;
 		const isAmended = displayName && displayName.trim() !== authUser.displayName;
 		return (
