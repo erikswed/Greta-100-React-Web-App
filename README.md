@@ -7,7 +7,7 @@
            
  This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
             
-# Greta Thunberg the first 100 weeks in pictures
+# Greta Thunberg the first 100 weeks in pictures and more..
 
 
 ##### THE BIGGEST SOURCE FOR GRETA THUNBERG'S FRIDAYS FOR FUTURE INFORMATION IN THE FORM OF IMAGES, MOVIES, TEXT AND ARTICLES
@@ -28,7 +28,6 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 ![](http://greta.portplays.com/images/weeks1.png)
 
 
-
 ##### A website portraying this must contain following:
 - Images, text, films and other files related to protests must be organized under "weeks".  End users view a "week" and see only related material for that particular "week".
  - Must show the climate and ecological crisis protest both in images, text, films and articles.
@@ -37,17 +36,83 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 - End users must be able to edit/add description to any material simply by selecting it and "edit".
 - End users must be able to upload new material (version 2.0).
 - links to FFF and to Gretas Twitter, Facebook must exist. 
+- All material must be organized over a central timeline. Like adding an image or a set of images/files they all must be tagged with date/time to fit in the timeline
 
 ##### ***THIS ABOVE LIST IS IN A DRAFT STATE..****
+
+# Current version:  1.1.0
+
+## Change log
+
+##### App Version: 1.1.0 Build: 1605289836481 Date: (13.11.2020 18:50:36)
+CHANGES:
+- Added Firebase full login flow. Check Navbar User icon for login. 
+- Note that most changes are still happening under the hood as of now.
+
+##### App Version: 1.0.9 Build: 1602012032253 Date: (06.10.2020 21:20:32)
+CHANGES:
+- Added React-Bootstrap Navbar addition
+
+##### App Version: 1.0.8 Build: 1600892449056 Date: (23.09.2020 22:20:49)
+CHANGES:
+- Added feature-add-items-overlay-with-options-like-download-open-change-description
+
+##### App Version: 1.0.7 Build: 1600071819377 Date: (14.09.2020 10:23:39)
+CHANGES:
+- This is now a development release for presentation only! This version is not production ready!
+- Added support for docx, xlsx, mp3, pdf, mp4 and txt files to be shown in albums. (You can view demo files under week1 that will be removed later)
+- Cleanup code with Eslint and Pretty print
+
+##### App Version: 1.0.6 Build: 1599076010736 Date: (02.09.2020 21:46:50)
+CHANGES:
+- Fixed: on mobile screen menu text too long pushed screen out.
+- Fixed: Images with space in their names did not render in img added encodeURIComponent()
+- System: Introduced React-Redux. 
+- Moved out all json files metadata into public folder as a prep for a new backend later
+
+##### App Version: 1.0.5 Build: 1598179258474 Date: (23.08.2020 12:40:58)
+Changes:
+ - Just added the text "(we seek dev help if you're a Reactjs wizard please join)." in the Resume.json
+ - running some tests
+
+
+##### App Version: 1.0.4 - 04/05/2016App Version: 0.1.4 Build: 1598170287004 Date: (23.08.2020 10:11:27)
+Changes:
+- Added component ShowBuildAndVersion to show app Version.
+- Fixed when clicking the same album the TimelineViewer disappears.
+
+
+## Roadmap
+
+- [ ] Get sponsors 
+- [ ] Full server backend location
+- [ ] 
+- [ ] 
 
 ## Design
 A one page website easy access.
 
 ##  Development
-This is a ReactJs project using Create React App and no need to eject as of today.    
+If you want to help out we are very happy for that and you can chat with Us at [Facebook!](https://www.facebook.com/Greta-Thunberg-the-first-100-weeks-in-pictures-246201326553309) !
+
+This is a Create React App ReactJs project.
 Considering the requirements and on-going iteration discussions, feel free to contribute with Pull requests. 
 
+To get starting developing you have to create a Firebase account and setting up your own credentials. Check Firebase.js for config, typically create some .env file in root for the constants. In the .env file at root the HTTPS=true is set to make Facebook login work and this require use of secure https://localhost:xxxx/
+
+As of release V1.1.0: This is the Firestore-rules.json at root for Cloud Firestore db  setup.
+
+At Cloud Firestore enable Sign-in providers:
+- anonymous
+- Google
+- Facebook
+- Twitter
+
+That's it for now and probably forgot something just text me from Facebook group and expect changes since it's early beta..
+
 ## TODO:
++ Create Internationalization
++ Move json meta data to Firestore
 + The Menu header Toggle Button open a link page and all links need setup help.
 + Mobile screen layout is needed for: 
    + Top Menu layout below some 500px width need help:
@@ -73,7 +138,7 @@ Considering the requirements and on-going iteration discussions, feel free to co
    + User add to an album a single images, movie or doc and by so must add the above metadata.
 #### How it works: 
 
-The app metadata is currently loaded from a json at ´public/resume.json´. By using an external json it becomes flexible since the app state can be changed without building the app again. The json data can when time comes easily be inserted on a remote backend later on running some flavor of NOSQL.
+The app metadata is currently loaded from a json at ´public/resume.json´. By initially pre dev using an external json it becomes flexible since the app state can be changed without building the app again. The json data can when time comes easily be inserted on a remote backend later on running some flavor of NOSQL.
 
 This is the main Overall json down below you see the json dedicated only for albums
 This is up till now a [resume](https://jsonresume.org/) type of layout json because it was a handy starter but we will outgrow that. 
@@ -240,49 +305,6 @@ Albums meta data json
     ]
   },
 ```
-# Current version:  1.0.9
-
-## Change log
-
-##### App Version: 1.0.9 Build: 1602012032253 Date: (06.10.2020 21:20:32)
-CHANGES:
-- Added React-Bootstrap Navbar addition
-
-##### App Version: 1.0.8 Build: 1600892449056 Date: (23.09.2020 22:20:49)
-CHANGES:
-- Added feature-add-items-overlay-with-options-like-download-open-change-description
-
-##### App Version: 1.0.7 Build: 1600071819377 Date: (14.09.2020 10:23:39)
-CHANGES:
-- This is now a development release for presentation only! This version is not production ready!
-- Added support for docx, xlsx, mp3, pdf, mp4 and txt files to be shown in albums. (You can view demo files under week1 that will be removed later)
-- Cleanup code with Eslint and Pretty print
-
-##### App Version: 1.0.6 Build: 1599076010736 Date: (02.09.2020 21:46:50)
-CHANGES:
-- Fixed: on mobile screen menu text too long pushed screen out.
-- Fixed: Images with space in their names did not render in img added encodeURIComponent()
-- System: Introduced React-Redux. 
-- Moved out all json files metadata into public folder as a prep for a new backend later
-
-##### App Version: 1.0.5 Build: 1598179258474 Date: (23.08.2020 12:40:58)
-Changes:
- - Just added the text "(we seek dev help if you're a Reactjs wizard please join)." in the Resume.json
- - running some tests
-
-
-##### App Version: 1.0.4 - 04/05/2016App Version: 0.1.4 Build: 1598170287004 Date: (23.08.2020 10:11:27)
-Changes:
-- Added component ShowBuildAndVersion to show app Version.
-- Fixed when clicking the same album the TimelineViewer disappears.
-
-
-## Roadmap
-
-- [ ] Backend server 
-- [ ] Add support for all types of files in an album
-- [ ] Get sponsors 
-- [ ] 
 
 ## Build
 
@@ -296,6 +318,7 @@ Changes:
 > npm install
 > npm run build
 ```
+3 During dev use secure https://localhost:xxxx/ since Facebook require it. Disable this in .env file. 
 
 You can also test the app with a development server, just run:
 
