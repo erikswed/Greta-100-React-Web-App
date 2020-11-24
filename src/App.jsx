@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { getAlbumData } from './redux/albumData/albumData.actions';
 import { getMetaData } from './redux/albumMetaData/albumMetaData.actions';
-
 import Header from './components/structure/Header';
 import Content from './components/structure/Content';
 import Footer from './components/structure/Footer';
+import Dashboard from './components/profile/Dashboard';
+
 import { withAuthentication } from './session';
 import './styles/index.css';
 
@@ -23,6 +24,7 @@ class App extends Component {
 				<Header />
 				<Content />
 				<Footer />
+				<Dashboard />
 			</div>
 		);
 	}

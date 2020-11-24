@@ -44,7 +44,7 @@ class Timeline extends React.PureComponent {
 		const { slideIndex } = this.state;
 
 		return (
-			<section className="hero is-dark  has-bg-image">
+			<section id="scroll-to-timeline" className="hero is-dark  has-bg-image">
 				<div className="c" id="timeline">
 					<p>Your at Album: {slideIndex} </p>
 					<input onChange={this.changeHandler} value={slideIndex} type="range" min={0} max={50} />

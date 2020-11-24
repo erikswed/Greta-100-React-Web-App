@@ -7,7 +7,7 @@ function AboutMe({ albumMeta }) {
 	if (albumMeta.length === 0) return null;
 
 	return (
-		<section className="section has-background-link" id="aboutMe">
+		<section className="section has-background-link" id="scroll-to-aboutMe">
 			<div className="container has-text-centered">
 				<figure className="image container is-180x180">
 					<img

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import uniqueId from 'lodash/uniqueId';
-import Article from '../elements/Article';
+import Article from './Article';
 import { selectAlbumMetaSlice } from '../../redux/albumMetaData/albumMetaData.selectors';
 
 // TODO Template to be used
@@ -42,7 +42,7 @@ class Articles extends Component {
 		this.getArticles();
 		const { articles } = this.state;
 		return (
-			<section className="section" id="articles">
+			<section className="section" id="scroll-to-articles">
 				<div className="container">
 					<h1 className="title">Articles</h1>
 					<h2 className="subtitle is-4">My latest articles</h2>

@@ -34,6 +34,7 @@
     "react-resize-detector": "^5.0.7",
     "react-scripts": "^3.4.0",
     "react-slick": "^0.27.3",
+    "react-spring": "^8.0.27",
     "react-visibility-sensor": "^5.1.1",
     "rebass": "^4.0.7",
     "recompose": "^0.30.0",

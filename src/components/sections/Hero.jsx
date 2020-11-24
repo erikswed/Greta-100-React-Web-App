@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import uniqueId from 'lodash/uniqueId';
 import { connect } from 'react-redux';
-import NavBar from './NavBar';
+import NavBar from '../navbar/NavBar';
 import ShowBuildAndVersion from './ShowBuildAndVersion';
-import SlideDrawer from '../side-drawer/SideDrawer';
 import { selectAlbumMetaSlice } from '../../redux/albumMetaData/albumMetaData.selectors';
 
 function Hero({ albumMeta }) {
-	const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 	const [yOffset, setYOffset] = useState(window.pageYOffset);
 	const [visible, setVisible] = useState(true);
 
@@ -24,21 +22,12 @@ function Hero({ albumMeta }) {
 		setVisible(isVisible);
 	}
 
-	const drawerToggleClickHandler = () => {
-		setDrawerIsOpen(!drawerIsOpen);
-	};
-
-	const backdropClickHandler = () => {
-		setDrawerIsOpen(false);
-	};
-
 	if (typeof albumMeta === 'undefined') return null;
 	if (albumMeta.length === 0) return null;
 	return (
 		<section className="hero is-dark is-fullheight has-bg-image">
 			<div className="hero-head">
-				<NavBar toggle={drawerToggleClickHandler} visible={visible} />
-				<SlideDrawer show={drawerIsOpen} close={backdropClickHandler} />
+				<NavBar visible={visible} />
 			</div>
 			<div className="hero-body">
 				<div className="container">

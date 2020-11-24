@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from '../elements/Hero';
+import Hero from '../sections/Hero';
 
 function Header() {
 	return (
