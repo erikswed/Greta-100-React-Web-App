@@ -5,8 +5,8 @@ import TimeLineViewer from '../sections/TimeLineViewer';
 import Articles from '../sections/Articles';
 
 class Content extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.onChangeAlbum = this.onChangeAlbum.bind(this);
 		this.state = {
 			currentAlbumIndex: 1,
