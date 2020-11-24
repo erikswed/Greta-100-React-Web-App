@@ -40,7 +40,7 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 
 ##### ***THIS ABOVE LIST IS IN A DRAFT STATE..****
 
-# Current version:  1.1.0
+# Current version:  1.1.1
 
 ## Change log
 
