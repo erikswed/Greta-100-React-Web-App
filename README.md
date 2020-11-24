@@ -44,6 +44,10 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 
 ## Change log
 
+##### App Version: 1.1.1 ....
+CHANGES:
+- FIxed a better top menu so it also works on smaller mobile screens 
+
 ##### App Version: 1.1.0 Build: 1605289836481 Date: (13.11.2020 18:50:36)
 CHANGES:
 - Added Firebase full login flow. Check Navbar User icon for login. 

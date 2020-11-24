@@ -16,7 +16,9 @@ const config = {
 class Firebase {
 	constructor() {
 		app.initializeApp(config);
-
+		app.firestore().settings({
+			cacheSizeBytes: app.firestore.CACHE_SIZE_UNLIMITED,
+		});
 		/* Helper */
 
 		this.fieldValue = app.firestore.FieldValue;
