@@ -1,6 +1,6 @@
 // import { AsyncStorage } from 'react-native';
 import { eventChannel } from 'redux-saga';
-import { takeLatest, all, put, call, fork, take, takeEvery, cancel, cancelled, getContext } from 'redux-saga/effects';
+import { takeLatest, put, call, take, cancel, cancelled, getContext } from 'redux-saga/effects';
 // import firebase from 'react-native-firebase';
 
 import { updateLocalUser } from './user.actions';

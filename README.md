@@ -7,7 +7,7 @@
            
  This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
             
-# Greta Thunberg the first 100 weeks in pictures and more..
+# Greta Thunberg the first 100 weeks in pictures and more..(Gretas's Weeks)
 
 
 ##### THE BIGGEST SOURCE FOR GRETA THUNBERG'S FRIDAYS FOR FUTURE INFORMATION IN THE FORM OF IMAGES, MOVIES, TEXT AND ARTICLES
@@ -23,7 +23,7 @@ This is a fan website built using ReactJS and Bulma as the CSS framework.
 ![](http://greta.portplays.com/images/preview-film.gif)
 
 ## Requirements 
-A website for Greta Thunberg Fridays For Future and for Greta's different engagements, such as award ceremonies, nominations, events and personal happenings. Practically everything about her journey. Greta Thunberg's concept is to every Friday make a protest, either outside or indoors, to let the world know about the climate and ecological crisis. One particularly important thing is the "weeks". Greta is now as-of writing on her 106'th week of protesting. By highlighting the "week" as a central organizer /, Fridays For Future have created their own time calendar era with the start at week "ONE" on Monday August 20 2018.
+A website for Greta Thunberg Fridays For Future and for Greta's different engagements, such as award ceremonies, nominations, events and personal happenings. Practically everything about her journey. Greta Thunberg's concept is to every Friday make a protest, either outside or indoors, to let the world know about the climate and ecological crisis. One particularly important thing is the "weeks". Greta is now as-of writing on her 106'th week of protesting. By highlighting the "week" as a central organizer /, Fridays For Future have created their own time calendar era with the start at week ONE on Monday August 20 2018.
 
 ![](http://greta.portplays.com/images/weeks1.png)
 
@@ -37,6 +37,7 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 - End users must be able to upload new material (version 2.0).
 - links to FFF and to Gretas Twitter, Facebook must exist. 
 - All material must be organized over a central timeline. Like adding an image or a set of images/files they all must be tagged with date/time to fit in the timeline
+- All added material must be approved by role=admin regarding its correctness. 
 
 ##### ***THIS ABOVE LIST IS IN A DRAFT STATE..****
 
@@ -94,7 +95,7 @@ Changes:
 - [ ] 
 
 ## Design
-A one page website easy access.
+A one page website easy access SPA.
 
 ##  Development
 If you want to help out we are very happy for that and you can chat with Us at [Facebook!](https://www.facebook.com/Greta-Thunberg-the-first-100-weeks-in-pictures-246201326553309) !
@@ -102,9 +103,9 @@ If you want to help out we are very happy for that and you can chat with Us at [
 This is a Create React App ReactJs project.
 Considering the requirements and on-going iteration discussions, feel free to contribute with Pull requests. 
 
-To get starting developing you have to create a Firebase account and setting up your own credentials. Check Firebase.js for config, typically create some .env file in root for the constants. In the .env file at root the HTTPS=true is set to make Facebook login work and this require use of secure https://localhost:xxxx/
-
-As of release V1.1.0: This is the Firestore-rules.json at root for Cloud Firestore db  setup.
+To get starting developing you have to create a Firebase account and setting up your own credentials. Check Firebase.js for config, typically create some .env file in root for the constants. 
+- In the .env file at root the HTTPS=true is set to make Facebook login work-
+- As of release V1.1.0: the Firestore-rules.json at root for Cloud Firestore.
 
 At Cloud Firestore enable Sign-in providers:
 - anonymous
@@ -112,16 +113,13 @@ At Cloud Firestore enable Sign-in providers:
 - Facebook
 - Twitter
 
-That's it for now and probably forgot something just text me from Facebook group and expect changes since it's early beta..
+That's it for now just text me from Facebook group and expect changes since it's early beta..
 
 ## TODO:
 + Create Internationalization
 + Move json meta data to Firestore
 + The Menu header Toggle Button open a link page and all links need setup help.
-+ Mobile screen layout is needed for: 
-   + Top Menu layout below some 500px width need help:
-      + on mobile a hamburger toggler is enough and some Header logo maybe
-   + In the Masonry the overlay for all items Docs, Tex's are not for mobile and need help
++ In the Masonry the overlay for all items Docs, Tex's are not for mobile and need help
 + Proposal for a Top Menu search feature like autocomplete search to start with then expand it to [look something like this](https://codesandbox.io/s/react-tutorial-search-button-forked-q05kq?file=/main/Main.js)
 + The structure for how albums "weeks" all the way to individual files images, movies and docs are going to be handled. Specifically that an "item" can have this metadata: 
    + Overall description text
@@ -140,175 +138,6 @@ That's it for now and probably forgot something just text me from Facebook group
    metadata. 
    + User search for images, movies and docs and then the metadata is used by user to filter result.
    + User add to an album a single images, movie or doc and by so must add the above metadata.
-#### How it works: 
-
-The app metadata is currently loaded from a json at ´public/resume.json´. By initially pre dev using an external json it becomes flexible since the app state can be changed without building the app again. The json data can when time comes easily be inserted on a remote backend later on running some flavor of NOSQL.
-
-This is the main Overall json down below you see the json dedicated only for albums
-This is up till now a [resume](https://jsonresume.org/) type of layout json because it was a handy starter but we will outgrow that. 
-```json
-{
-  "basics": {
-    "name": "Greta Thunberg",
-    "label": "Climate and Environmental Activist",
-    "picture": "images/GretaThunberg 2.jpg",
-    "x_pictureFallback": "images/GretaThunberg-portrait.jpg",
-    "x_title": "OUR HOUSE IS ON FIRE",
-    "summary": "GRETA TINTIN ELEONORA ERNMAN THUNBERG\nborn January 3 2003 at 375PPM is a Swedish environmental activist who has gained international recognition for promoting the view that humanity is facing an existential crisis arising from climate change. Thunberg is known for her youth and her straightforward speaking manner both in public and to political leaders and assemblies, in which she criticises world leaders for their failure to take sufficient action to address the climate crisis.\nACTIVISM\nThunberg's activism started after convincing her parents to adopt several lifestyle choices to reduce their own carbon footprint. In August 2018, at age 15, she started spending her school days outside the Swedish parliament to call for stronger action on climate change by holding up a sign reading Skolstrejk för klimatet (School strike for climate). Soon, other students engaged in similar protests in their own communities. Together, they organised a school climate strike movement under the name Fridays for Future. After Thunberg addressed the 2018 United Nations Climate Change Conference, student strikes took place every week somewhere in the world. In 2019, there were multiple coordinated multi-city protests involving over a million students each. To avoid flying, Thunberg sailed to North America where she attended the 2019 UN Climate Action Summit. Her speech there, in which she exclaimed \"how dare you\", was widely taken up by the press and incorporated into music.\nAn Ikon\nHer sudden rise to world fame has made her both a leader and a target for critics. Her influence on the world stage has been described by The Guardian and other newspapers as the \"Greta effect\". She has received numerous honours and awards including: honorary Fellowship of the Royal Scottish Geographical Society; Time magazine's 100 most influential people and the youngest Time Person of the Year; inclusion in the Forbes list of The World's 100 Most Powerful Women (2019) and two consecutive nominations for the Nobel Peace Prize (2019 and 2020)...and more",
-    "fansite": "This is a fansite under construction!! (we seek dev help if you're a Reactjs wizard please join). ",
-    "description": "GRETA THUNBERG - THE FIRST 100 WEEKS IN PICTURES",
-    "location": {
-      "country": "Sweden",
-      "countryCode": "SE",
-      "region": "Stockholm"
-    },
-    "profiles": [
-      {
-        "network": "Friday For Future FFF",
-        "username": "Greta Thunberg",
-        "url": "https://fridaysforfuture.se/",
-        "x_icon": "fas fa-home fa-2x"
-      },
-      {
-        "network": "Facebook",
-        "username": "Greta Thunberg",
-        "url": "https://www.facebook.com/gretathunbergsweden/",
-        "x_icon": "fab fa-2x fa-facebook"
-      },
-      {
-        "network": "Twitter",
-        "username": "Greta Thunberg",
-        "url": "https://twitter.com/GretaThunberg",
-        "x_icon": "fab fa-2x fa-twitter"
-      }
-    ]
-  },
-  "weeks": [
-    {
-      "weekNumber": "1",
-      "year": "2018",
-      "title": "Climate Strike Week 1, Parliament, Stockholm SE(Simon Rehnström)",
-      "startDate": "2018-08-20",
-      "albumDate": "Monday August 20",
-      "summary": "Climate Strike Week 1, Parliament, Stockholm SE(Simon Rehnström"
-    },
-    {
-      "weekNumber": "2",
-      "year": "2018",
-      "title": "Climate Strike Week 2, Parliament, Stockholm SE (Anders Hellberg))",
-      "startDate": "2018-08-27",
-      "albumDate": "Monday August 27",
-      "summary": "Climate Strike Week 2, Parliament, Stockholm SE (Anders Hellberg)."
-    },
-    {
-      "weekNumber": "3",
-      "year": "2018",
-      "title": "Rålambshovsparken Peoples Climate March Stockholm Kom till Rålis",
-      "startDate": "2018-09-03",
-      "albumDate": "Saturday September 8",
-      "summary": "Rålambshovsparken Peoples Climate March Stockholm Kom till Rålis"
-    }
-  ]
-}
-```
-
-Albums meta data json
-```json
-[
-  {
-    "id": "week-1",
-    "weekNumber": "1",
-    "coverImage": "coverImage.jpg",
-    "media": [
-      {
-        "id": "week-1-1",
-        "key": "1",
-        "week": "1",
-        "fileData": "4olpqsvfte5rubn47j936z7c5vn9lff.jpeg",
-        "ratio": "0.6677181913774973",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "84427",
-        "mediaType": "jpeg",
-        "mimeType": "image/jpeg"
-      },
-      {
-        "id": "week-1-2",
-        "key": "2",
-        "week": "1",
-        "fileData": "9tlnx2sudu05jqxwij2evyvaifkrvbc.jpeg",
-        "ratio": "0.7497371188222923",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "115603",
-        "mediaType": "jpeg",
-        "mimeType": "image/jpeg"
-      },
-      {
-        "id": "week-1-3",
-        "key": "3",
-        "week": "1",
-        "fileData": "Greta Thunberg \u0026 FatBoy Slim - Right Here, Right Now (Full Extended).mp3",
-        "ratio": "1.41428571429",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "18005908",
-        "mediaType": "mp3",
-        "mimeType": "audio/mpeg"
-      },
-     ]
-  },
-  {
-    "id": "week-2",
-    "weekNumber": "2",
-    "coverImage": "coverImage.jpg",
-    "media": [
-     {
-        "id": "week-1-1",
-        "key": "1",
-        "week": "2",
-        "fileData": "Greta-Thunbergs-first-speech-at-Saturday-September-8-2018.mp4",
-        "ratio": "1.41428571429",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "10372097",
-        "mediaType": "mp4",
-        "mimeType": "video/mp4",
-        "duration": "139111"
-      },
-      {
-        "id": "week-1-2",
-        "key": "2",
-        "week": "2",
-        "fileData": "h14-greta-thunberg-eu-leaders-climate-change.jpg",
-        "ratio": "0.5625",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "56767",
-        "mediaType": "jpg",
-        "mimeType": "image/jpeg"
-      },
-      {
-        "id": "week-1-3",
-        "key": "3",
-        "week": "3",
-        "fileData": "LICENSE.txt",
-        "ratio": "1.41428571429",
-        "background": "rgb(56, 230, 236)",
-        "title": "dhdasdada",
-        "description": "jkhkjhl",
-        "size": "11562",
-        "mediaType": "txt",
-        "mimeType": "text/plain"
-      },
-    ]
-  },
-```
 
 ## Build
 

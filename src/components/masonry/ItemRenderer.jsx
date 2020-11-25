@@ -21,17 +21,11 @@ class ItemRenderer extends React.Component {
 				{s => (
 					<div
 						style={{
-							fontSize: '20px',
-							color: '#4a54f1',
-							textAlign: 'center',
-							paddingTop: '100px',
-
 							width: '100%',
 							height: 0,
 							paddingBottom: `${100 * ratio}%`,
 							backgroundSize: '100% 100%',
 							backgroundColor: background,
-							color: 'white',
 							fontFamily: 'sans-serif',
 							backgroundImage: `url(${theFile})`,
 							transform: `translate3d(0,0,0)`,
@@ -44,6 +38,7 @@ class ItemRenderer extends React.Component {
 								background: 'black',
 								display: 'inline-block',
 								fontSize: '.875rem',
+								color: 'white',
 							}}
 						>
 							#{id}

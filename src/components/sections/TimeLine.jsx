@@ -9,10 +9,10 @@ class Timeline extends React.PureComponent {
 		super();
 		this.changeHandler = this.changeHandler.bind(this);
 		this.changeSlider = this.changeSlider.bind(this);
-		this.changeUpdateCount = this.changeUpdateCount.bind(this);
+		// this.changeUpdateCount = this.changeUpdateCount.bind(this);
 		this.state = {
 			slideIndex: 1,
-			updateCount: 0,
+			// updateCount: 0,
 		};
 	}
 
@@ -25,10 +25,10 @@ class Timeline extends React.PureComponent {
 	// 	this.changeUpdateCount.bind(this);
 	// }
 
-	changeUpdateCount() {
-		const { updateCount } = this.state;
-		this.state.updateCount = updateCount + 1;
-	}
+	// changeUpdateCount() {
+	// 	const { updateCount } = this.state;
+	// 	this.state.updateCount = updateCount + 1;
+	// }
 
 	changeSlider() {
 		this.setState({
@@ -53,7 +53,7 @@ class Timeline extends React.PureComponent {
 						childRef={ref => {
 							this.wrapper = ref;
 						}}
-						beforeChanged={this.changeUpdateCount}
+						// beforeChanged={this.changeUpdateCount}
 						afterChanged={this.changeSlider}
 						slideIndex={slideIndex}
 					/>

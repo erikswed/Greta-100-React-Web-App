@@ -19,7 +19,7 @@ const CollapseMenu = props => {
 				close();
 			}
 		},
-		[close],
+		[close, show],
 	);
 
 	useEffect(() => {

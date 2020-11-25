@@ -5,18 +5,10 @@ import { withFirebase } from '../../firebase';
 import { AuthUserContext, withAuthorization } from '../../session';
 import * as ROLES from '../../constants/roles';
 
-class SummaryPageBase extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			displayName: props.authUser.displayName ?? '',
-		};
-	}
-
+class SummaryPageBase extends React.PureComponent {
 	render() {
 		let userDetails;
 		const { authUser } = this.props;
-		const { displayName } = this.state; // TODO work in progress
 		if (authUser) {
 			userDetails = (
 				<div>

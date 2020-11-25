@@ -48,10 +48,10 @@ export class TextFileReader extends React.Component {
 
 	readTextFile = file => {
 		const rawFile = new XMLHttpRequest();
-		rawFile.open('GET', file, false);
+		rawFile.open('GET', file, true);
 		rawFile.onreadystatechange = () => {
 			if (rawFile.readyState === 4) {
-				if (rawFile.status === 200 || rawFile.status == 0) {
+				if (rawFile.status === 200 || rawFile.status === 0) {
 					const allText = rawFile.responseText;
 					this.setState({
 						text: allText,

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -51,7 +52,7 @@ const SideMenu = props => {
 			<MenuLinksSpace />
 			<MenuLinks>
 				<li>
-					<a onClick={onArticlesPageClick}>
+					<a onClick={onArticlesPageClick} role="presentation">
 						<span className="icon is-medium">
 							<i className="fas fa-newspaper" />
 						</span>{' '}
@@ -59,7 +60,7 @@ const SideMenu = props => {
 					</a>
 				</li>
 				<li>
-					<a onClick={onTimelinePageClick}>
+					<a onClick={onTimelinePageClick} role="presentation">
 						<span className="icon is-medium">
 							<i className="fas fa-stream" />
 						</span>{' '}
@@ -67,7 +68,7 @@ const SideMenu = props => {
 					</a>
 				</li>
 				<li>
-					<a onClick={onAboutMePageClick}>
+					<a onClick={onAboutMePageClick} role="presentation">
 						<span className="icon is-medium">
 							<i className="fas fa-info-circle" />
 						</span>{' '}
@@ -75,7 +76,7 @@ const SideMenu = props => {
 					</a>
 				</li>
 				<li>
-					<a onClick={onSearchPageClick}>
+					<a onClick={onSearchPageClick} role="presentation">
 						<span className="icon is-medium">
 							<i className="fas fa-search" />
 						</span>{' '}
@@ -83,7 +84,7 @@ const SideMenu = props => {
 					</a>
 				</li>
 				<li>
-					<a onClick={onProfilePageClick}>
+					<a onClick={onProfilePageClick} role="presentation">
 						<span className="icon is-medium">
 							<i className="fas fa-user" />
 						</span>{' '}

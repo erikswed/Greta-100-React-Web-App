@@ -4,11 +4,11 @@
   "lang": "en-US",
   "start_url": "/http://greta.portplays.com/",
   "display": "standalone",
-  "theme_color": "00ff66",
+  "theme_color": "#00ff66",
   "icons": [
     {
       "src": "http://greta.portplays.com/images/GretaThunberg-collage3.png",
-      "sizes": "s"
+      "sizes": "800x450"
     },
     {
       "sizes": "2560x1439"

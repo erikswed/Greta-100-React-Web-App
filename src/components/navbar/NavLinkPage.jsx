@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const NavLinkPage = props => {
+const NavLinkPage = () => {
 	const [help, setHelp] = useState();
 
 	function handleClick(val) {
@@ -14,7 +14,7 @@ const NavLinkPage = props => {
 				style={{
 					position: 'absolute',
 					left: '50%',
-					top: '30%',
+					top: '20%',
 					transform: 'translate(-50%, -50%)',
 					color: 'red',
 					background: '#ffffff',

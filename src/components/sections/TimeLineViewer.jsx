@@ -24,7 +24,7 @@ class TimeLineView extends React.Component {
 		if (album.length === 0) return null;
 		const { albumIndex } = this.props;
 		// don't render if album request does not exist in the map, albumIndex is not in the map or less then 0
-		if (albumIndex < 1 || albumIndex == undefined) return null;
+		if (albumIndex < 1 || albumIndex === undefined) return null;
 		let items = la.find(album, { weekNumber: String(albumIndex) });
 		items = items.media;
 		this.currentAlbum = albumIndex;
