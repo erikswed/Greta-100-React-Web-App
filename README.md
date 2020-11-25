@@ -40,13 +40,13 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 
 ##### ***THIS ABOVE LIST IS IN A DRAFT STATE..****
 
-# Current version:  1.1.0
+# Current version:  1.1.1
 
 ## Change log
 
-##### App Version: 1.1.1 ....
+##### App Version: 1.1.1 Build: 1606246094943 Date: (24.11.2020 20:28:14)
 CHANGES:
-- FIxed a better top menu so it also works on smaller mobile screens 
+- FIxed the top navigation bar so it also works on mobile screens     
 
 ##### App Version: 1.1.0 Build: 1605289836481 Date: (13.11.2020 18:50:36)
 CHANGES:
