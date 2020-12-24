@@ -7,11 +7,9 @@
   "theme_color": "#00ff66",
   "icons": [
     {
-      "src": "http://greta.portplays.com/images/GretaThunberg-collage3.png",
-      "sizes": "800x450"
-    },
-    {
-      "sizes": "2560x1439"
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     }
   ]
 }

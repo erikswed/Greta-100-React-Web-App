@@ -1,37 +1,45 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { showDashboard, hideDashboard } from '../../redux/dashboard/dashboard.actions';
+import { useNavigate } from 'react-router-dom';
+import WithDashboardNavigate from '../../session/WithDashboardNavigate';
+import { AuthUserContext } from '../../session';
+import * as ROLES from '../../constants/roles';
 
-function SignedInButton(props) {
-	function closeDashboard() {
-		props.hideDash();
-	}
+function SignedInButtonBase(props) {
+	const navigate = useNavigate();
+	const { authUser } = props;
 
 	function openDashboard() {
-		props.showDash({
-			open: true,
-			closeDashboard,
-		});
+		props.dashboardNavigater(navigate);
 	}
 
 	return (
 		<div>
-			<Button className="button is-large" onClick={openDashboard}>
-				<span className="icon is-medium">
-					<i className="fas fa-user" />
-				</span>
-			</Button>
+			{authUser ? (
+				<div>
+					{Array.isArray(authUser.roles) && authUser.roles.includes(ROLES.USER) ? (
+						<div>
+							<Button className="button is-large" onClick={openDashboard}>
+								<span className="icon is-medium">
+									<i className="fas fa-user" />
+								</span>
+							</Button>
+						</div>
+					) : (
+						<div>
+							<Button className="button is-large" onClick={openDashboard}>
+								<span className="icon is-medium">
+									<i className="fas fa-user" />
+								</span>
+								<span>Sign In</span>
+							</Button>
+						</div>
+					)}
+				</div>
+			) : null}
 		</div>
 	);
 }
-
-const mapDispatchToProps = dispatch => ({
-	hideDash: () => dispatch(hideDashboard()),
-	showDash: dashboardProps => {
-		dispatch(showDashboard({ dashboardProps }));
-	},
-});
 
 const Button = styled.button`
 	height: 68px;
@@ -52,4 +60,15 @@ const Button = styled.button`
 		display: none;
 	}
 `;
-export default connect(null, mapDispatchToProps)(SignedInButton);
+const SignedInButtonEnhanced = WithDashboardNavigate(SignedInButtonBase);
+const SignedInButto = () => (
+	<AuthUserContext.Consumer>
+		{authUser => (
+			<div>
+				<SignedInButtonEnhanced authUser={authUser} />
+			</div>
+		)}
+	</AuthUserContext.Consumer>
+);
+
+export default SignedInButto;

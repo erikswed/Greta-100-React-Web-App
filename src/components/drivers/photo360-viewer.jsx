@@ -59,7 +59,7 @@ class Photo360Viewer extends Component {
 	}
 
 	UNSAFE_componentWillUpdate() {
-		// TODO
+		// TODO:
 		this.updateView();
 	}
 

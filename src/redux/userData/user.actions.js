@@ -64,25 +64,63 @@ const changeDisplayNameFailure = errMsg => ({
 	payload: errMsg,
 });
 
-export function changeDisplayName(displayName) {
+export function changeDisplayName(newDisplayName) {
 	return (dispatch, getState, firebase) => {
 		const userRef = firebase.userDoc(firebase.auth.currentUser.uid);
 		dispatch(changeDisplayNameStart());
 		userRef
 			.update({
-				displayName,
+				displayName: newDisplayName,
 			})
 			.then(() => {
 				if (process.env.NODE_ENV !== 'production')
-					console.log(`Sucessfully updated user displayName to: ${displayName}`);
-				firebase.doLogEvent(`Could not save user to Firestore! ${displayName}`);
-				return displayName;
+					console.log(`Sucessfully updated user displayName to: ${newDisplayName}`);
+				firebase.doLogEvent(`Sucessfully updated user displayName to ${newDisplayName}`);
+				return newDisplayName;
 			})
-			.then(displayName => {
-				dispatch(changeDisplayNameSuccess(displayName));
+			.then(() => {
+				dispatch(changeDisplayNameSuccess(newDisplayName));
 			})
 			.catch(error => {
 				dispatch(changeDisplayNameFailure(`Failed to update user displayName: ${error.code} - ${error.message}`));
+			});
+	};
+}
+
+// Change Request Admin Role
+const changeRequestAdminRoleStart = () => ({
+	type: userActionTypes.CHANGE_REQUEST_ADMIN_ROLE_START,
+});
+
+const changeRequestAdminRoleSuccess = change => ({
+	type: userActionTypes.CHANGE_REQUEST_ADMIN_ROLE_SUCCESS,
+	payload: change,
+});
+
+const changeRequestAdminRoleFailure = errMsg => ({
+	type: userActionTypes.CHANGE_REQUEST_ADMIN_ROLE_FAILURE,
+	payload: errMsg,
+});
+
+export function changeRequestAdminRole(change) {
+	return (dispatch, getState, firebase) => {
+		const userRef = firebase.userDoc(firebase.auth.currentUser.uid);
+		dispatch(changeRequestAdminRoleStart());
+		userRef
+			.update({
+				requestAdminRole: change,
+			})
+			.then(() => {
+				if (process.env.NODE_ENV !== 'production')
+					console.log(`Sucessfully requested admin role for: ${firebase.auth.currentUser.uid}`);
+				firebase.doLogEvent(`Sucessfully requested admin role for: ${firebase.auth.currentUser.uid}`);
+				return change;
+			})
+			.then(() => {
+				dispatch(changeRequestAdminRoleSuccess(change));
+			})
+			.catch(error => {
+				dispatch(changeRequestAdminRoleFailure(`Failed to request admin role: ${error.code} - ${error.message}`));
 			});
 	};
 }

@@ -12,8 +12,7 @@ const WithAuthentication = Component => {
 		constructor() {
 			super();
 			this.state = {
-				authUser: JSON.parse(localStorage.getItem('authUser')),
-				once: true,
+				authUser: null,
 			};
 		}
 
@@ -26,13 +25,12 @@ const WithAuthentication = Component => {
 					startUserListen();
 				},
 				() => {
-					localStorage.removeItem('authUser');
-					this.setState({ authUser: null });
 					const roles = [];
 					roles.push(ROLES.ANON);
 					firebase
 						.doSignInAnonymously()
 						.then(authUser => {
+							localStorage.setItem('isUserAnon', 'true');
 							if (process.env.NODE_ENV !== 'production')
 								console.log(`Sucessfully signed in to Firebase Anonymously with UID: ${firebase.getCurrentUserUid()}`);
 							firebase.doLogEvent('login', { method: 'Anonymous' });
@@ -41,7 +39,7 @@ const WithAuthentication = Component => {
 								.set({
 									displayName: `User-${authUser.user.uid.substring(0, 6)}`,
 									roles,
-									date: firebase.fieldValue.serverTimestamp(),
+									createdate: firebase.fieldValue.serverTimestamp(),
 								})
 								.then(() => {
 									console.log('New user saved to Firestore!');
@@ -62,9 +60,11 @@ const WithAuthentication = Component => {
 		}
 
 		render() {
+			// User from Firebase user listener
 			const { currentUser } = this.props;
+			// User from state
 			let { authUser } = this.state;
-			// ALl changes to user object will trigger an update
+			// Changes made must be saved localy
 			if (currentUser) authUser = currentUser;
 			return (
 				<AuthUserContext.Provider value={authUser}>
