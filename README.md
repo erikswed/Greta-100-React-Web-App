@@ -7,7 +7,7 @@
            
  This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
             
-# Greta Thunberg the first 100 weeks in pictures and more..(Gretas's Weeks)
+# Greta Thunberg the first 100 weeks in pictures and more..(Greta's Week's)
 
 
 ##### THE BIGGEST SOURCE FOR GRETA THUNBERG'S FRIDAYS FOR FUTURE INFORMATION IN THE FORM OF IMAGES, MOVIES, TEXT AND ARTICLES
