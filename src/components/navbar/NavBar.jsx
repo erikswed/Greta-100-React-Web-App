@@ -185,7 +185,8 @@ const Button = styled.button`
 	justify-content: space-between;
 	background: var(--button-background);
 	border-radius: 6px;
-	&:hover {
+	:hover {
+		cursor: pointer;
 		background: var(--button-hover-background);
 	}
 `;

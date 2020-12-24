@@ -111,7 +111,7 @@ class TimeLineView extends React.Component {
 							2360: 8,
 						}}
 						onEnd={() => {
-							// TODO possible when many items lazy load them
+							// TODO: possible when many items lazy load them
 							// this.addItems();
 						}}
 					/>

@@ -1,22 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { showDashboard, hideDashboard } from '../../redux/dashboard/dashboard.actions';
+import WithDashboardNavigate from '../../session/WithDashboardNavigate';
+import { AuthUserContext } from '../../session';
+import * as ROLES from '../../constants/roles';
 
-const SideMenu = props => {
-	const { close } = props;
-
-	const closeDashboard = () => {
-		props.hideDash();
-	};
-
-	const openDashboard = () => {
-		props.showDash({
-			open: true,
-			closeDashboard,
-		});
-	};
+function SideMenuBase(props) {
+	const { close, dashboardNavigater, authUser } = props;
+	const navigate = useNavigate();
 
 	const onArticlesPageClick = () => {
 		const node = document.getElementById('scroll-to-articles');
@@ -43,8 +35,8 @@ const SideMenu = props => {
 	};
 
 	const onProfilePageClick = () => {
-		close();
-		openDashboard();
+		if (close) close();
+		dashboardNavigater(navigate);
 	};
 
 	return (
@@ -53,57 +45,69 @@ const SideMenu = props => {
 			<MenuLinks>
 				<li>
 					<a onClick={onArticlesPageClick} role="presentation">
-						<span className="icon is-medium">
+						<span className="icon is-medium" style={{ marginRight: '0.4rem' }}>
 							<i className="fas fa-newspaper" />
-						</span>{' '}
+						</span>
 						Articles
 					</a>
 				</li>
 				<li>
 					<a onClick={onTimelinePageClick} role="presentation">
-						<span className="icon is-medium">
+						<span className="icon is-medium" style={{ marginRight: '0.4rem' }}>
 							<i className="fas fa-stream" />
-						</span>{' '}
+						</span>
 						Timeline
 					</a>
 				</li>
 				<li>
 					<a onClick={onAboutMePageClick} role="presentation">
-						<span className="icon is-medium">
+						<span className="icon is-medium" style={{ marginRight: '0.4rem' }}>
 							<i className="fas fa-info-circle" />
-						</span>{' '}
+						</span>
 						About
 					</a>
 				</li>
 				<li>
 					<a onClick={onSearchPageClick} role="presentation">
-						<span className="icon is-medium">
+						<span className="icon is-medium" style={{ marginRight: '0.4rem' }}>
 							<i className="fas fa-search" />
-						</span>{' '}
+						</span>
 						Search
 					</a>
 				</li>
-				<li>
-					<a onClick={onProfilePageClick} role="presentation">
-						<span className="icon is-medium">
-							<i className="fas fa-user" />
-						</span>{' '}
-						Profile
-					</a>
-				</li>
+				{authUser ? (
+					<li style={{ listStyleType: 'none' }}>
+						<a onClick={onProfilePageClick} style={{ display: 'flex' }} role="presentation">
+							<span className="icon is-medium" style={{ marginRight: '0.4rem' }}>
+								<i className="fas fa-user" />
+							</span>
+							<div>
+								{Array.isArray(authUser.roles) && authUser.roles.includes(ROLES.USER) ? (
+									<div>Dashboard</div>
+								) : (
+									<div>Sign in</div>
+								)}
+							</div>
+						</a>
+					</li>
+				) : null}
 			</MenuLinks>
 		</div>
 	);
-};
+}
 
-const mapDispatchToProps = dispatch => ({
-	hideDash: () => dispatch(hideDashboard()),
-	showDash: dashboardProps => {
-		dispatch(showDashboard({ dashboardProps }));
-	},
-});
+const SideMenuBaseEnhanced = WithDashboardNavigate(SideMenuBase);
+const SideMenu = () => (
+	<AuthUserContext.Consumer>
+		{authUser => (
+			<div>
+				<SideMenuBaseEnhanced authUser={authUser} />
+			</div>
+		)}
+	</AuthUserContext.Consumer>
+);
 
-export default connect(null, mapDispatchToProps)(SideMenu);
+export default SideMenu;
 
 const MenuLinksSpace = styled.div`
 	height: 60px;

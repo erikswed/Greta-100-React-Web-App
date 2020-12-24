@@ -34,6 +34,7 @@ class Articles extends Component {
 		for (let i = 0; i < 0; i += 1) {
 			article.push(<div className="column" />);
 		}
+		// TODO:: work in progress
 		this.state.articles = article;
 		return null;
 	}

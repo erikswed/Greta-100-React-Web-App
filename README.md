@@ -16,16 +16,16 @@ This is a fan website built using ReactJS and Bulma as the CSS framework.
 
 (we are looking for contributors to help build this site!)
 
-## [Check out the live site!](Http://greta.portplays.com/)
+## [Check out the live site!](Https://greta.portplays.com/)
 
 ## [Connect with Us at Facebook!](https://www.facebook.com/Greta-Thunberg-the-first-100-weeks-in-pictures-246201326553309) 
 
-![](http://greta.portplays.com/images/preview-film.gif)
+![](https://greta.portplays.com/images/preview-film.gif)
 
 ## Requirements 
 A website for Greta Thunberg Fridays For Future and for Greta's different engagements, such as award ceremonies, nominations, events and personal happenings. Practically everything about her journey. Greta Thunberg's concept is to every Friday make a protest, either outside or indoors, to let the world know about the climate and ecological crisis. One particularly important thing is the "weeks". Greta is now as-of writing on her 106'th week of protesting. By highlighting the "week" as a central organizer /, Fridays For Future have created their own time calendar era with the start at week ONE on Monday August 20 2018.
 
-![](http://greta.portplays.com/images/weeks1.png)
+![](https://greta.portplays.com/images/weeks1.png)
 
 
 ##### A website portraying this must contain following:
@@ -41,9 +41,13 @@ A website for Greta Thunberg Fridays For Future and for Greta's different engage
 
 ##### ***THIS ABOVE LIST IS IN A DRAFT STATE..****
 
-# Current version:  1.1.1
+# Current version:  1.2.6
 
 ## Change log
+
+##### App Version: 1.2.6 Build: 1608830433717 Date: (24.12.2020 18:20:33)
+CHANGES:    
+- New Dashboard with Theming. This Dashboard is an outlining of features and the next step is to implement them. So have a look around and feel free to come with code to input.
 
 ##### App Version: 1.1.1 Build: 1606246094943 Date: (24.11.2020 20:28:14)
 CHANGES:
@@ -112,10 +116,12 @@ At Cloud Firestore enable Sign-in providers:
 - Google
 - Facebook
 - Twitter
+- E-mail
 
 That's it for now just text me from Facebook group and expect changes since it's early beta..
 
 ## TODO:
++ Continue building on the Dashboard features it's a blanks slate right now
 + Create Internationalization
 + Move json meta data to Firestore
 + The Menu header Toggle Button open a link page and all links need setup help.
