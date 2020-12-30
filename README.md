@@ -12,7 +12,7 @@
 
 ##### THE BIGGEST SOURCE FOR GRETA THUNBERG'S FRIDAYS FOR FUTURE INFORMATION IN THE FORM OF IMAGES, MOVIES, TEXT AND ARTICLES
 
-This is a fan website built using ReactJS and using Material-UI for frontend and Redux store as backend
+This is a fan website built using ReactJS Material-UI for frontend and React Redux with Firebase Firestore as backend.
 
 (we are looking for contributors to help build this site!)
 
