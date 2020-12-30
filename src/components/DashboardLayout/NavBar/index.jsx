@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Typography, Avatar, Box, Button, Divider, Drawer, Hidden, List, makeStyles } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
@@ -9,9 +9,9 @@ import AccountIcon from '@material-ui/icons/AccountCircle';
 import StatisticsIcon from '@material-ui/icons/Equalizer';
 import InboxIcon from '@material-ui/icons/AllInbox';
 import SettingsIcon from '@material-ui/icons/Settings';
-import { useNavigate } from 'react-router-dom';
 import NavItem from './NavItem';
 import { AuthUserContext } from '../../../session';
+import WithDashboardNavigate from '../../../session/WithDashboardNavigate';
 import * as ROLES from '../../../constants/roles';
 import * as NAVIGATE_ROUTES from '../../../constants/navigateRoutes';
 
@@ -103,7 +103,7 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-function NavBarBase({ onMobileClose, openMobile, authUser }) {
+function NavBarBase({ onMobileClose, openMobile, authUser, dashboardNavigater }) {
 	const classes = useStyles();
 	const location = useLocation();
 	const navigate = useNavigate();
@@ -112,12 +112,7 @@ function NavBarBase({ onMobileClose, openMobile, authUser }) {
 		if (openMobile && onMobileClose) {
 			onMobileClose();
 		}
-		// Simple way to initially set the Dashboards first view after user sign in
-		const isUserAnon = localStorage.getItem('isUserAnon');
-		if (isUserAnon === 'true' && authUser.roles.includes(ROLES.USER)) {
-			localStorage.setItem('isUserAnon', 'false');
-			navigate(NAVIGATE_ROUTES.DASHBOARD.path);
-		}
+		dashboardNavigater(navigate, location.pathname);
 	}, [location.pathname, authUser]);
 
 	/**
@@ -329,4 +324,4 @@ NavBar.defaultProps = {
 	openMobile: false,
 };
 
-export default NavBar;
+export default WithDashboardNavigate(NavBar);

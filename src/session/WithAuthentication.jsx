@@ -30,7 +30,6 @@ const WithAuthentication = Component => {
 					firebase
 						.doSignInAnonymously()
 						.then(authUser => {
-							localStorage.setItem('isUserAnon', 'true');
 							if (process.env.NODE_ENV !== 'production')
 								console.log(`Sucessfully signed in to Firebase Anonymously with UID: ${firebase.getCurrentUserUid()}`);
 							firebase.doLogEvent('login', { method: 'Anonymous' });
