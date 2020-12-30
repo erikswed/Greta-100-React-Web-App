@@ -39,6 +39,18 @@ export const LOGIN = {
 };
 
 export const REGISTER = {
-	path: '/app/Register',
+	path: '/app/register',
 	title: 'Register',
+};
+
+export const NAVIGATE_ROUTES_MAP = {
+	REGISTER,
+	LOGIN,
+	DASHBOARD,
+	SEARCH,
+	CREATE,
+	SUBMISSIONS,
+	INBOX,
+	ACCOUNT,
+	SETTINGS,
 };

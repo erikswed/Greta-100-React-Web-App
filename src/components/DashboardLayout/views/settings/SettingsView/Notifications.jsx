@@ -33,7 +33,7 @@ const Notifications = ({ className, ...rest }) => {
 		<form className={clsx(classes.root, className)} {...rest}>
 			<Card className={classes.card}>
 				<CardHeader subheader="Manage the notifications" title="Notifications" />
-				<Typography gutterBottom variant="6" color="textSecondary">
+				<Typography gutterBottom variant="h6" color="textSecondary">
 					(This is an example showing how it can look like)
 				</Typography>
 				<Divider />

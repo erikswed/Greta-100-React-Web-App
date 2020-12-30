@@ -12,9 +12,19 @@ const ThemeContextProvider = props => {
 		const yourTheme = localStorage.getItem('theme');
 		if (yourTheme) {
 			const themeIndex = allThemes.findIndex(t => t.name === yourTheme);
-			const selectedTheme = allThemes[themeIndex];
-			setTheme(selectedTheme.theme);
-			setThemeName(selectedTheme.name);
+			if (themeIndex === -1) {
+				// if someone change localstorage theme name then load default
+				setTheme(allThemes[0].theme);
+				setThemeName(allThemes[0].name);
+			} else {
+				const selectedTheme = allThemes[themeIndex];
+				setTheme(selectedTheme.theme);
+				setThemeName(selectedTheme.name);
+			}
+		} else {
+			// if someone delete localstorage theme name then load default
+			setTheme(allThemes[0].theme);
+			setThemeName(allThemes[0].name);
 		}
 	}, [theme]);
 
