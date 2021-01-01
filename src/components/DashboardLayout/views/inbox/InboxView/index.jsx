@@ -44,7 +44,7 @@ const InboxView = () => (
 	</AuthUserContext.Consumer>
 );
 
-const condition = authUser => authUser && authUser.roles.includes(ROLES.ADMIN);
+const condition = authUser => authUser && authUser.roles.includes(ROLES.USER);
 const enhance = compose(withEmailVerification, withAuthorization(condition));
 
 export default enhance(InboxView);

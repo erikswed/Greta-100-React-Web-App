@@ -14,6 +14,7 @@ import { AuthUserContext } from '../../../session';
 import WithDashboardNavigate from '../../../session/WithDashboardNavigate';
 import * as ROLES from '../../../constants/roles';
 import * as NAVIGATE_ROUTES from '../../../constants/navigateRoutes';
+import ShowBuildAndVersion from '../../sections/ShowBuildAndVersion';
 
 const user = {
 	avatar: '/static/images/avatars/avatar_6.png',
@@ -39,6 +40,11 @@ const itemsUser = [
 		href: NAVIGATE_ROUTES.ACCOUNT.path,
 		icon: AccountIcon,
 		title: NAVIGATE_ROUTES.ACCOUNT.title,
+	},
+	{
+		href: NAVIGATE_ROUTES.INBOX.path,
+		icon: InboxIcon,
+		title: NAVIGATE_ROUTES.INBOX.title,
 	},
 	{
 		href: NAVIGATE_ROUTES.SETTINGS.path,
@@ -101,6 +107,13 @@ const useStyles = makeStyles(theme => ({
 		width: 64,
 		height: 64,
 	},
+	button: {
+		display: 'flex',
+		margin: '5px',
+		padding: '5px',
+		boxShadow: theme.shadows[5],
+		background: theme.palette.primary.main,
+	},
 }));
 
 function NavBarBase({ onMobileClose, openMobile, authUser, dashboardNavigater }) {
@@ -151,6 +164,7 @@ function NavBarBase({ onMobileClose, openMobile, authUser, dashboardNavigater })
 							</Typography>
 							<Box display="flex" justifyContent="center" mt={2}>
 								<Button
+									className={classes.button}
 									color="primary"
 									component="a"
 									href="https://www.facebook.com/Greta-Thunbergs-Weeks-in-pictures-and-more-246201326553309"
@@ -192,6 +206,7 @@ function NavBarBase({ onMobileClose, openMobile, authUser, dashboardNavigater })
 							</Typography>
 							<Box display="flex" justifyContent="center" mt={2}>
 								<Button
+									className={classes.button}
 									color="primary"
 									component="a"
 									href="https://www.facebook.com/Greta-Thunbergs-Weeks-in-pictures-and-more-246201326553309"
@@ -225,6 +240,7 @@ function NavBarBase({ onMobileClose, openMobile, authUser, dashboardNavigater })
 						</Typography>
 						<Box display="flex" justifyContent="center" mt={2}>
 							<Button
+								className={classes.button}
 								color="primary"
 								component="a"
 								href="https://www.facebook.com/Greta-Thunbergs-Weeks-in-pictures-and-more-246201326553309"
@@ -235,48 +251,6 @@ function NavBarBase({ onMobileClose, openMobile, authUser, dashboardNavigater })
 						</Box>
 					</Box>
 				</Box>
-			);
-		}
-
-		if (authUser.roles.includes(ROLES.ADMIN)) {
-			return (
-				<div>
-					<Box height="100%" display="flex" flexDirection="column">
-						<Box alignItems="center" display="flex" flexDirection="column" p={2}>
-							<Avatar className={classes.avatar} component={RouterLink} src={user.avatar} to="/app/account" />
-							<Typography className={classes.name} color="textPrimary" variant="h5">
-								{authUser ? authUser.displayName : ''}
-							</Typography>
-						</Box>
-						<Divider />
-						<Box p={2}>
-							<List>
-								{itemsAdmin.map(item => (
-									<NavItem href={item.href} key={item.title} title={item.title} icon={item.icon} />
-								))}
-							</List>
-						</Box>
-						<Box flexGrow={1} />
-						<Box p={2} m={2} bgcolor="background.dark">
-							<Typography align="center" gutterBottom variant="h4">
-								Greta's Week's
-							</Typography>
-							<Typography align="center" variant="body2">
-								Greta Thunberg's Week's in pictures and more · Photography and videography
-							</Typography>
-							<Box display="flex" justifyContent="center" mt={2}>
-								<Button
-									color="primary"
-									component="a"
-									href="https://www.facebook.com/Greta-Thunbergs-Weeks-in-pictures-and-more-246201326553309"
-									variant="contained"
-								>
-									Visit Us at Facebook
-								</Button>
-							</Box>
-						</Box>
-					</Box>
-				</div>
 			);
 		}
 		return null;
@@ -293,11 +267,35 @@ function NavBarBase({ onMobileClose, openMobile, authUser, dashboardNavigater })
 					variant="temporary"
 				>
 					{contentSelector()}
+					<Box bgcolor="background.dark">
+						<Typography align="center" variant="body1">
+							<div
+								style={{
+									fontSize: '.775rem',
+									marginBottom: '5px',
+								}}
+							>
+								<ShowBuildAndVersion />
+							</div>
+						</Typography>
+					</Box>
 				</Drawer>
 			</Hidden>
 			<Hidden mdDown>
 				<Drawer anchor="left" classes={{ paper: classes.desktopDrawer }} open variant="persistent">
 					{contentSelector()}
+					<Box bgcolor="background.dark">
+						<Typography align="center" variant="body1">
+							<div
+								style={{
+									fontSize: '.775rem',
+									marginBottom: '5px',
+								}}
+							>
+								<ShowBuildAndVersion />
+							</div>
+						</Typography>
+					</Box>
 				</Drawer>
 			</Hidden>
 		</>

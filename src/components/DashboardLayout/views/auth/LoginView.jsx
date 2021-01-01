@@ -240,7 +240,9 @@ class LoginManagementBase extends React.Component {
 									Sign in
 								</Typography>
 								<Typography color="textSecondary" gutterBottom variant="body2">
-									Sign in on the internal platform
+									Sign in on the internal platform to be able to contribute with new material, Images, Articles and
+									Films. From here you can also read messages and select your role like, Creator, Administrator and
+									more.
 								</Typography>
 							</Box>
 							<Grid container spacing={3}>
